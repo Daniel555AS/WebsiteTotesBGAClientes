@@ -1,0 +1,195 @@
+/* General body styling */
+body {
+    font-family: 'Poppins', sans-serif; /* Sets the font family */
+    margin: 0; /* Removes default margin */
+    padding: 0; /* Removes default padding */
+    box-sizing: border-box; /* Ensures padding and border are included in the element's total width and height */
+    background-color: rgb(30, 30, 30); /* Dark background color */
+    color: white; /* White text color */
+    display: flex; /* Enables flexbox layout */
+    flex-direction: column; /* Stacks flex items vertically */
+    height: 100vh; /* Full viewport height */
+}
+
+/* Header styling */
+header {
+    background-color: transparent; /* Transparent background */
+    color: white; /* White text color */
+    padding: 2vh 5vw; /* Vertical and horizontal padding */
+    display: flex; /* Flexbox layout */
+    justify-content: flex-start; /* Aligns items to the left */
+    align-items: center; /* Centers items vertically */
+    position: fixed; /* Fixes header at the top */
+    top: 0; /* Positions at the top */
+    left: 0; /* Aligns to the left */
+    width: 100%; /* Full width */
+    z-index: 1000; /* Ensures header stays on top */
+}
+
+/* Logo styling */
+#logo {
+    width: 15vw; /* Responsive logo width */
+    height: auto; /* Keeps aspect ratio */
+    margin-right: 3vw; /* Space to the right */
+    margin-left: -1vw; /* Adjusted space to the left */
+    margin-top: 1vw; /* Space at the top */
+}
+
+/* Navigation styling */
+nav ul {
+    list-style: none; /* Removes bullet points */
+    padding: 0; /* Removes padding */
+    margin: 0; /* Removes margin */
+    display: flex; /* Horizontal flex layout */
+    align-items: center; /* Vertically centers items */
+}
+
+nav ul li {
+    margin: 0 1.5vw; /* Horizontal margin between items */
+}
+
+nav ul li a {
+    color: white; /* White text color */
+    text-decoration: none; /* Removes underline */
+    font-size: 1.5vw; /* Responsive font size */
+    font-family: 'Poppins', sans-serif; /* Consistent font family */
+    font-weight: bold; /* Bold text */
+    position: relative; /* Allows positioning of pseudo-elements */
+    padding-bottom: 5px; /* Space below the link */
+}
+
+/* Underline animation on hover */
+nav ul li a::after {
+    content: ''; /* Empty content for pseudo-element */
+    position: absolute; /* Absolute position relative to link */
+    left: 0; /* Aligns to the left */
+    bottom: 0; /* Positions at the bottom */
+    width: 100%; /* Full width */
+    height: 2px; /* Line height */
+    background-color: rgb(255, 51, 95); /* Pink underline color */
+    transform: scaleX(0); /* Initially hidden */
+    transform-origin: bottom left; /* Animation starts from the left */
+    transition: transform 0.3s ease; /* Smooth scaling animation */
+}
+
+nav ul li a:hover::after {
+    transform: scaleX(1); /* Full width on hover */
+}
+
+/* Main content styling */
+main {
+    flex-grow: 1; /* Allows main content to expand */
+    display: flex; /* Flexbox layout */
+    flex-direction: column; /* Stacks items vertically */
+    align-items: center; /* Centers content horizontally */
+    justify-content: flex-start; /* Aligns content at the top */
+    padding-top: 15vh; /* Space below the fixed header */
+}
+
+/* Contact title styling */
+#contact-title {
+    font-size: 3vw; /* Responsive font size */
+    color: rgb(255, 51, 95); /* Pink text color */
+    text-align: center; /* Centers text */
+    font-weight: normal; /* Normal font weight */
+    margin-bottom: 2vh; /* Space below the title */
+    margin-top: 5vh; /* Space above the title */
+}
+
+/* Contact form styling */
+#contact-form {
+    display: grid; /* Grid layout */
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    gap: 2vw; /* Space between grid items */
+    width: 80%; /* Form width */
+    max-width: 800px; /* Maximum form width */
+    margin: 5vh auto; /* Center form with margin */
+}
+
+/* Form group styling for single-column inputs */
+.form-group {
+    display: flex; /* Flexbox for alignment */
+    flex-direction: column; /* Stack items vertically */
+}
+
+/* Full-width inputs */
+.full-width {
+    grid-column: span 2; /* Spans both columns */
+}
+
+/* Label styling */
+.form-group label {
+    font-size: 1.2vw; /* Responsive font size */
+    color: white; /* White text color */
+    margin-bottom: 0.5vh; /* Space below the label */
+}
+
+/* Input styling */
+.form-group input {
+    width: 100%; /* Full width */
+    padding: 1vh; /* Padding inside inputs */
+    border: none; /* Removes border */
+    border-bottom: 2px solid white; /* White bottom border */
+    background: transparent; /* Transparent background */
+    color: white; /* White text color */
+    font-size: 1vw; /* Responsive font size */
+    outline: none; /* Removes focus outline */
+}
+
+/* Placeholder styling */
+.form-group input::placeholder {
+    color: rgba(255, 255, 255, 0.7); /* Light white color */
+}
+
+/* Footer styling */
+footer {
+    text-align: center; /* Centers content */
+    padding: 2vh; /* Padding around footer */
+    background-color: rgb(44, 44, 44); /* Dark gray background */
+    color: white; /* White text color */
+    margin-top: auto; /* Pushes footer to the bottom */
+}
+
+/* Small screen responsiveness */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column; /* Stacks nav items vertically */
+        align-items: center; /* Centers nav items */
+    }
+
+    nav ul li {
+        margin: 1vw 0; /* Vertical margin */
+    }
+
+    nav ul li a {
+        font-size: 4vw; /* Larger font for small screens */
+    }
+
+    #contact-title {
+        font-size: 6vw; /* Larger title font */
+    }
+
+    main {
+        padding-top: 12vh; /* Adjust padding for smaller header */
+    }
+
+    #contact-form {
+        grid-template-columns: 1fr; /* Single-column layout */
+        width: 90%; /* Adjusted form width */
+    }
+
+    .form-group label {
+        font-size: 4vw; /* Larger labels */
+    }
+
+    .form-group input {
+        font-size: 3.5vw; /* Larger input text */
+    }
+}
+
+/* Large screen responsiveness */
+@media (min-width: 1200px) {
+    nav ul li a {
+        font-size: 1.2vw; /* Smaller font for large screens */
+    }
+}

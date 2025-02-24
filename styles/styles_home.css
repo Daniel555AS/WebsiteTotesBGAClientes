@@ -1,0 +1,234 @@
+/* General body styling
+   - Sets the primary font to 'Poppins' with sans-serif fallback.
+   - Removes default margin and padding to ensure consistent layout.
+   - Applies a dark background color and white text for a clean contrast.
+   - Uses Flexbox for a column layout to structure the page vertically.
+   - Ensures the body takes the full viewport height (100vh).
+   - Hides overflow content to prevent scrolling issues. */
+   body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: rgb(30, 30, 30);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Header styling
+   - Transparent background to blend with the body.
+   - Fixed position to remain at the top during scrolling.
+   - Flexbox for horizontal layout and alignment.
+   - High z-index to ensure visibility above other elements.
+   - Responsive padding for better adaptability to screen sizes. */
+header {
+    background-color: transparent;
+    color: white;
+    padding: 2vh 5vw;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+/* Logo styling
+   - Adjusts the logo size for responsiveness.
+   - Adds margin for separation from navigation.
+   - Ensures proper positioning within the header. */
+#logo {
+    width: 15vw;
+    height: auto;
+    margin-right: 3vw;
+    margin-left: -1vw;
+    margin-top: 1vw;
+}
+
+/* Navigation styling
+   - Removes default list styling for a clean appearance.
+   - Utilizes Flexbox to align menu items horizontally.
+   - Provides consistent spacing between menu items. */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+nav ul li {
+    margin: 0 1.5vw;
+}
+
+/* Navigation link styling
+   - Applies white, bold text for visibility.
+   - Adds an animated underline effect on hover.
+   - Relative positioning for precise underline placement. */
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5vw;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: rgb(255, 51, 95);
+    transform: scaleX(0);
+    transform-origin: bottom left;
+    transition: transform 0.3s ease;
+}
+
+nav ul li a:hover::after {
+    transform: scaleX(1);
+}
+
+/* Polygon background image styling
+   - Absolute positioning for layering effect.
+   - Ensures the image remains behind header and content.
+   - Controls image size and position for design consistency. */
+.polygon-1 {
+    height: 270vh;
+    width: 280%;
+    position: absolute;
+    top: -40vh;
+    left: 10%;
+    transform: translateX(-19%);
+    z-index: 1;
+    overflow: hidden;
+}
+
+/* Right image styling
+   - Fixed position to stay in place during scrolling.
+   - Controls image size and alignment on the right.
+   - Ensures image remains above the polygon but below header. */
+.right-image {
+    position: fixed;
+    top: 20vh;
+    right: -10vw;
+    width: 60vw;
+    height: auto;
+    z-index: 2;
+    overflow: hidden;
+}
+
+/* Main content container
+   - Allows content to expand to available space.
+   - Hides any overflow to maintain a clean layout. */
+main {
+    flex-grow: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Highlighted text section
+   - Large, bold white text for emphasis.
+   - Precise positioning for visual hierarchy.
+   - Adjusted line height for better readability. */
+.texto-destacado {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3rem;
+    font-weight: 600;
+    color: white;
+    text-align: left;
+    line-height: 1.2;
+    z-index: 3;
+    position: absolute;
+    top: 30vh;
+    left: 23%;
+    transform: translateX(-50%);
+}
+
+/* Styling for 'carro' highlight
+   - Changes text color to pink for visual differentiation. */
+.carro {
+    color: rgb(255, 51, 95);
+}
+
+/* Button styling
+   - Rounded corners and padding for better aesthetics.
+   - Smooth hover transition for interactive feedback. */
+.btn-elige {
+    font-family: 'Poppins', sans-serif;
+    background-color: rgb(255, 51, 95);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 15px 30px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-top: 40px;
+    transition: background-color 0.4s ease;
+}
+
+.btn-elige:hover {
+    background-color: rgb(210, 26, 90);
+}
+
+/* Footer styling
+   - Centers content horizontally.
+   - Ensures footer sticks to the bottom if needed.
+   - Consistent background color and text styling. */
+footer {
+    text-align: center;
+    padding: 2vh;
+    background-color: rgb(44, 44, 44);
+    color: white;
+    position: relative;
+    margin-top: auto;
+    z-index: 5;
+    overflow: hidden;
+}
+
+/* Responsive styles for small screens
+   - Stacks navigation vertically.
+   - Adjusts image and text sizes for better fit. */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 1vw 0;
+    }
+
+    nav ul li a {
+        font-size: 4vw;
+    }
+
+    .polygon-1 {
+        height: 150vh;
+    }
+
+    .right-image {
+        width: 40vw;
+        top: 10vh;
+    }
+}
+
+/* Responsive styles for large screens
+   - Adjusts font and image sizes for better readability. */
+@media (min-width: 1200px) {
+    nav ul li a {
+        font-size: 1.2vw;
+    }
+
+    .polygon-1 {
+        height: 180vh;
+    }
+}

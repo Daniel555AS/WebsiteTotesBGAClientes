@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto</title>
+
+    <!-- Link to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Link to external CSS stylesheet -->
+    <link rel="stylesheet" href="styles/styles_contacto.css">
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <header id="header">
+        <!-- Website Logo -->
+        <img src="assets/logo_header.png" alt="Logo" id="logo">
+        
+        <!-- Navigation Menu -->
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li> <!-- Link to Home Page -->
+                <li><a href="#matrix">Matriz</a></li> <!-- Link to Matrix Section -->
+                <li><a href="#vehicles">Vehículos</a></li> <!-- Link to Vehicles Section -->
+                <li><a href="#spare-parts">Repuestos</a></li> <!-- Link to Spare Parts Section -->
+                <li><a href="#workshop">Taller</a></li> <!-- Link to Workshop Section -->
+                <li><a href="contacto.html">Contacto</a></li> <!-- Link to Contact Page -->
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Contact Page Title -->
+        <h1 id="contact-title">QUEREMOS ESCUCHARTE</h1>
+
+        <!-- Contact Form -->
+        <form id="contact-form">
+
+            <!-- Name Input -->
+            <div class="form-group">
+                <label for="nombre">Nombre*</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+            </div>
+
+            <!-- Last Name Input -->
+            <div class="form-group">
+                <label for="apellido">Apellido*</label>
+                <input type="text" id="apellido" name="apellido" placeholder="Tu apellido" required>
+            </div>
+
+            <!-- Phone Number Input -->
+            <div class="form-group">
+                <label for="telefono">Teléfono*</label>
+                <input type="text" id="telefono" name="telefono" placeholder="Tu teléfono" required>
+            </div>
+
+            <!-- Email Input -->
+            <div class="form-group">
+                <label for="correo">Correo Electrónico*</label>
+                <input type="email" id="correo" name="correo" placeholder="Tu correo" required>
+            </div>
+
+            <!-- Address Input (Full Width) -->
+            <div class="form-group full-width">
+                <label for="direccion">Dirección de Residencia*</label>
+                <input type="text" id="direccion" name="direccion" placeholder="Tu dirección" required>
+            </div>
+
+            <!-- Department Input -->
+            <div class="form-group">
+                <label for="departamento">Departamento*</label>
+                <input type="text" id="departamento" name="departamento" placeholder="Tu departamento" required>
+            </div>
+
+            <!-- City Input -->
+            <div class="form-group">
+                <label for="ciudad">Ciudad*</label>
+                <input type="text" id="ciudad" name="ciudad" placeholder="Tu ciudad" required>
+            </div>
+
+        </form>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 Nueva Página. Todos los derechos reservados.</p> <!-- Copyright Notice -->
+    </footer>
+
+</body>
+
+</html>
