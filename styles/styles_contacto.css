@@ -60,7 +60,7 @@ nav ul li a {
     text-decoration: none; /* Removes underline */
     font-size: 1.5vw; /* Responsive font size */
     font-family: 'Poppins', sans-serif; /* Consistent font family */
-    font-weight: normal; /* Bold text */
+    font-weight: normal; /* Normal text */
     position: relative; /* Allows positioning of pseudo-elements */
     padding-bottom: 5px; /* Space below the link */
 }
@@ -141,11 +141,15 @@ main {
     color: white; /* White text color */
     font-size: 1vw; /* Responsive font size */
     outline: none; /* Removes focus outline */
+    font-family: 'Poppins', sans-serif; /* Consistent font family */
+    font-weight: normal; /* Normal text */
 }
 
 /* Placeholder styling */
 .form-group input::placeholder {
     color: rgba(255, 255, 255, 0.7); /* Light white color */
+    font-family: 'Poppins', sans-serif; /* Consistent font family */
+    font-weight: normal; /* Normal text */
 }
 
 /* Bottom reflection on inputs */
@@ -245,6 +249,143 @@ main {
 /* Hover effect on the button */
 .btn-enviar:hover {
     background-color: rgb(210, 26, 90); /* Darker background color on hover */
+}
+
+/* Style for the slider switch */
+.switch {
+    position: relative; /* Allows absolute positioning of child elements */
+    display: inline-block; /* Ensures the switch is treated as an inline block */
+    width: 50px; /* Width of the switch slider */
+    height: 25px; /* Height of the switch slider */
+    margin-left: 50px; /* Space between the switch and the left side */
+}
+
+/* Hide the checkbox input */
+.switch input {
+    opacity: 0; /* Makes the checkbox invisible */
+    width: 0; /* Removes width to prevent interaction */
+    height: 0; /* Removes height to prevent interaction */
+}
+
+/* Style for the slider (visible part of the switch) */
+.slider {
+    position: absolute; /* Positioned relative to the .switch container */
+    cursor: pointer; /* Changes the cursor to a pointer when hovering */
+    top: 0; /* Aligns the slider to the top of the container */
+    left: 0; /* Aligns the slider to the left of the container */
+    right: 0; /* Ensures the slider stretches to the right */
+    bottom: 0; /* Ensures the slider stretches to the bottom */
+    background-color: #444; /* Default slider background color (dark mode) */
+    border-radius: 25px; /* Rounds the edges to create a pill-shaped slider */
+    transition: 0.4s; /* Smooth transition effect for background and position changes */
+}
+
+/* Sliding indicator (the circle with an icon) */
+.slider::before {
+    content: "🌙"; /* Displays a moon icon for dark mode */
+    display: flex; /* Enables flexbox for centering the icon */
+    align-items: center; /* Vertically centers the icon within the circle */
+    justify-content: center; /* Horizontally centers the icon within the circle */
+    position: absolute; /* Positions the circle relative to the .slider container */
+    height: 18px; /* Circle height (sliding indicator size) */
+    width: 18px; /* Circle width (sliding indicator size) */
+    left: 4px; /* Initial position of the circle (dark mode) */
+    bottom: 3.5px; /* Distance from the bottom edge of the slider */
+    background-color: white; /* Background color of the circle (white) */
+    border-radius: 50%; /* Makes the circle perfectly round */
+    transition: 0.4s; /* Smooth animation when switching themes */
+    font-size: 14px; /* Size of the moon icon */
+}
+
+/* When the checkbox is checked (light mode) */
+input:checked + .slider {
+    background-color: #ccc; /* Changes the slider background to light gray */
+}
+
+/* Moves the circle to the right (light mode) */
+input:checked + .slider::before {
+    transform: translateX(24px); /* Shifts the circle 24px to the right */
+    content: "☀️"; /* Displays a sun icon for light mode */
+    color: rgb(173, 216, 230); /* Light blue color for the sun icon */
+}
+
+/* Light mode: changes the background to white and the text to black */
+.light-mode {
+    background-color: white; /* White background for light mode */
+    color: black; /* Black text color for better contrast */
+}
+
+/* Sets the header background color to white when light mode is active */
+.light-mode header {
+    background-color: white;
+}
+
+/* Adjusts the navigation link color in light mode for better contrast and readability */
+.light-mode nav ul li a {
+    color: black; /* Changes the text color of navigation links to black */
+}
+
+/* Modifies the underline color of navigation links in light mode */
+.light-mode nav ul li a::after {
+    background-color: rgb(0, 40, 159); /* Applies a dark blue underline for visual distinction */
+}
+
+/* Changes the label color to black in light mode */
+.light-mode .form-group label {
+    color: black; /* Ensures labels are clearly visible against a light background */
+}
+
+/* Sets the contact form title color to dark blue in light mode */
+.light-mode #contact-title {
+    color: rgb(0, 40, 159); /* Provides a distinctive dark blue color for emphasis */
+}
+
+/* Styles the input fields in light mode */
+.light-mode .form-group input {
+    border-bottom: 2px solid rgb(0, 40, 159); /* Changes the bottom border to dark blue for a clear input field outline */
+}
+
+/* Applies a focus effect on input fields in light mode */
+.light-mode .form-group input:focus {
+    border-bottom: 2px solid rgb(0, 40, 159); /* Keeps the bottom border dark blue when the input is focused */
+    box-shadow: 0 4px 8px -4px rgba(0, 40, 159, 0.7); /* Adds a subtle blue shadow when the input is active */
+}
+
+/* Focus effect for the comment box in light mode */
+.light-mode .comment-box textarea:focus {
+    border-color: rgb(0, 40, 159); /* Keeps the border dark blue when the textarea is focused */
+    box-shadow: 0 4px 12px -4px rgba(0, 40, 159, 0.7); /* Adds a soft blue shadow to highlight the focused textarea */
+}
+
+/* Styles the comment box in light mode */
+.light-mode .comment-box textarea {
+    color: black; /* Ensures the input text is black for better readability on a light background */
+    border: 2px solid rgb(0, 40, 159); /* Applies a solid dark blue border around the textarea */
+}
+
+/* Light mode - Input field adjustments */
+.light-mode .form-group input {
+    color: black; /* Ensures that user input appears in black for clarity */
+}
+
+/* Light mode - Placeholder styling for input fields */
+.light-mode .form-group input::placeholder {
+    color: rgb(150, 146, 146); /* Sets a soft gray color for the placeholder text to distinguish it from user input */
+}
+
+/* Light mode - Link styling for full-width containers */
+.light-mode .full-width a {
+    color: rgb(0, 40, 159); /* Changes the link color to dark blue for better visibility on a light background */
+}
+
+/* Light mode - Submit button styling */
+.light-mode .btn-enviar {
+    background-color: rgb(0, 40, 159); /* Sets a dark blue background for the submit button to create a clear call-to-action */
+}
+
+/* Light mode - Submit button hover effect */
+.light-mode .btn-enviar:hover {
+    background-color: rgb(0, 30, 120); /* Darkens the button background on hover to provide visual feedback */
 }
 
 /* Footer styling */
