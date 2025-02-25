@@ -12,18 +12,25 @@ body {
 }
 
 /* Header styling */
+/* Header with background and transition */
 header {
-    background-color: transparent; /* Transparent background */
+    background-color: rgb(30, 30, 30); /* Matches the body's background */
     color: white; /* White text color */
     padding: 2vh 5vw; /* Vertical and horizontal padding */
-    display: flex; /* Flexbox layout */
-    justify-content: flex-start; /* Aligns items to the left */
-    align-items: center; /* Centers items vertically */
-    position: fixed; /* Fixes header at the top */
-    top: 0; /* Positions at the top */
-    left: 0; /* Aligns to the left */
-    width: 100%; /* Full width */
-    z-index: 1000; /* Ensures header stays on top */
+    display: flex; /* Uses flexbox for layout */
+    justify-content: flex-start; /* Aligns content to the left */
+    align-items: center; /* Centers content vertically */
+    position: fixed; /* Fixes the header at the top of the viewport */
+    top: 0; /* Positions the header at the top */
+    left: 0; /* Aligns the header to the left */
+    width: 100%; /* Makes the header full width */
+    z-index: 1000; /* Ensures the header is above other elements */
+    transition: box-shadow 0.3s ease; /* Smooth transition for the shadow effect */
+}
+
+/* Header shadow on scroll */
+header.scrolled {
+    box-shadow: 0 8px 20px rgba(210, 191, 195, 0.8); /* Adds a soft shadow when scrolled */
 }
 
 /* Logo styling */
@@ -53,7 +60,7 @@ nav ul li a {
     text-decoration: none; /* Removes underline */
     font-size: 1.5vw; /* Responsive font size */
     font-family: 'Poppins', sans-serif; /* Consistent font family */
-    font-weight: bold; /* Bold text */
+    font-weight: normal; /* Bold text */
     position: relative; /* Allows positioning of pseudo-elements */
     padding-bottom: 5px; /* Space below the link */
 }
@@ -139,6 +146,105 @@ main {
 /* Placeholder styling */
 .form-group input::placeholder {
     color: rgba(255, 255, 255, 0.7); /* Light white color */
+}
+
+/* Bottom reflection on inputs */
+.form-group input:focus {
+    box-shadow: 0 4px 8px -4px rgba(0, 0, 0, 0.5); /* Shadow only at the bottom */
+    border-bottom: 2px solid rgb(255, 51, 95); /* Highlights the bottom border */
+    outline: none; /* Removes the default outline */
+    transition: box-shadow 0.3s ease, border-bottom 0.3s ease; /* Smooth animation for shadow and border */
+}
+
+/* Bottom reflection on inputs */
+.form-group input:focus {
+    box-shadow: 0 4px 8px -4px rgba(0, 0, 0, 0.5); /* Shadow only at the bottom */
+    border-bottom: 2px solid rgb(255, 51, 95); /* Highlights the bottom border */
+    outline: none; /* Removes the default outline */
+    transition: box-shadow 0.3s ease, border-bottom 0.3s ease; /* Smooth animation for shadow and border */
+}
+
+/* Comment box */
+.comment-box {
+    display: flex; /* Uses flexbox for element alignment */
+    flex-direction: column; /* Aligns content in a column */
+    text-align: center; /* Centers the content */
+    margin-top: 2vh; /* Adds top margin */
+}
+
+/* Styling for the textarea (comment box) */
+.comment-box textarea {
+    width: 100%; /* Takes up the full available width */
+    height: 150px; /* Fixed height */
+    padding: 1vh; /* Internal padding */
+    border: 2px solid white; /* White border */
+    background: transparent; /* Transparent background */
+    color: white; /* White text color */
+    font-family: 'Poppins', sans-serif; /* Poppins font */
+    font-size: 1vw; /* Responsive font size */
+    outline: none; /* Removes the outline on focus */
+    resize: none; /* Disables textarea resizing */
+    box-shadow: 0 4px 8px -4px rgba(0, 0, 0, 0.5); /* Subtle shadow effect */
+}
+
+/* Increase comment title size */
+.comment-box label {
+    font-size: 1.2vw; /* Font size proportional to the viewport width */
+    margin-bottom: 1.5vh; /* Extra spacing below the label */
+    color: white; /* White text color */
+    font-family: 'Poppins', sans-serif; /* Poppins font */
+}
+
+/* Focus effect on the comment box */
+.comment-box textarea:focus {
+    border-color: rgb(255, 51, 95); /* Highlights the border on focus */
+    box-shadow: 0 4px 12px -4px rgba(255, 51, 95, 0.7); /* Pinkish shadow effect on focus */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for border and shadow */
+}
+
+/* Customization of text and link */
+.full-width label {
+    font-family: 'Poppins', sans-serif; /* Uses the Poppins font */
+    font-weight: 400; /* Normal font weight */
+    line-height: 1.6; /* Line spacing */
+}
+
+/* Custom color for the link */
+.full-width a {
+    color: rgb(255, 51, 95); /* Custom color for the link */
+    text-decoration: none; /* Removes the underline */
+    font-weight: 600; /* Bold font weight */
+}
+
+/* Hover effect on the link */
+.full-width a:hover {
+    text-decoration: underline; /* Underlines the link on hover */
+}
+
+/* Container to center the button */
+.btn-container {
+    grid-column: span 2; /* Occupies both columns */
+    display: flex; /* Uses flexbox for alignment */
+    justify-content: center; /* Centers the button horizontally */
+}
+
+/* Button styling */
+.btn-enviar {
+    font-family: 'Poppins', sans-serif; /* Uses the Poppins font */
+    background-color: rgb(255, 51, 95); /* Button background color */
+    color: white; /* White text color */
+    border: none; /* Removes the border */
+    border-radius: 20px; /* Rounded corners */
+    padding: 15px 12px; /* Smaller button size */
+    font-size: 1.2rem; /* Reduced text size */
+    cursor: pointer; /* Changes the cursor to a pointer */
+    width: 50%; /* Button width set to 50% of the container */
+    transition: background-color 0.4s ease; /* Smooth background color transition */
+}
+
+/* Hover effect on the button */
+.btn-enviar:hover {
+    background-color: rgb(210, 26, 90); /* Darker background color on hover */
 }
 
 /* Footer styling */

@@ -2,17 +2,17 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto</title>
+    <meta charset="UTF-8"> <!-- Defines the character encoding as UTF-8 to support special characters -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ensures responsiveness on different devices -->
+    <title>Contacto</title> <!-- Sets the title of the webpage displayed on the browser tab -->
 
     <!-- Link to Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> <!-- Optimizes connection to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <!-- Preconnects to Google Fonts' static content with cross-origin support -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"> <!-- Imports the "Poppins" font with various weights -->
 
     <!-- Link to external CSS stylesheet -->
-    <link rel="stylesheet" href="styles/styles_contacto.css">
+    <link rel="stylesheet" href="styles/styles_contacto.css"> <!-- Connects to an external CSS file for styling -->
 </head>
 
 <body>
@@ -20,17 +20,17 @@
     <!-- Header Section -->
     <header id="header">
         <!-- Website Logo -->
-        <img src="assets/logo_header.png" alt="Logo" id="logo">
-        
+        <img src="assets/logo_header.png" alt="Logo" id="logo"> <!-- Displays the website logo with an accessible alt description -->
+
         <!-- Navigation Menu -->
         <nav>
             <ul>
-                <li><a href="index.html">Inicio</a></li> <!-- Link to Home Page -->
-                <li><a href="#matrix">Matriz</a></li> <!-- Link to Matrix Section -->
-                <li><a href="#vehicles">Vehículos</a></li> <!-- Link to Vehicles Section -->
-                <li><a href="#spare-parts">Repuestos</a></li> <!-- Link to Spare Parts Section -->
-                <li><a href="#workshop">Taller</a></li> <!-- Link to Workshop Section -->
-                <li><a href="contacto.html">Contacto</a></li> <!-- Link to Contact Page -->
+                <li><a href="index.html">Inicio</a></li> <!-- Navigation link to the home page -->
+                <li><a href="#matrix">Matriz</a></li> <!-- Anchor link to the "Matrix" section on the same page -->
+                <li><a href="#vehicles">Vehículos</a></li> <!-- Anchor link to the "Vehicles" section -->
+                <li><a href="#spare-parts">Repuestos</a></li> <!-- Anchor link to the "Spare Parts" section -->
+                <li><a href="#workshop">Taller</a></li> <!-- Anchor link to the "Workshop" section -->
+                <li><a href="contacto.html">Contacto</a></li> <!-- Navigation link to the current "Contact" page -->
             </ul>
         </nav>
     </header>
@@ -38,51 +38,71 @@
     <!-- Main Content -->
     <main>
         <!-- Contact Page Title -->
-        <h1 id="contact-title">QUEREMOS ESCUCHARTE</h1>
+        <h1 id="contact-title">QUEREMOS ESCUCHARTE</h1> <!-- Main heading with the contact form title -->
 
         <!-- Contact Form -->
-        <form id="contact-form">
+        <form id="contact-form" action="#" method="POST"> <!-- Form with a unique ID, using POST method for data submission -->
 
             <!-- Name Input -->
             <div class="form-group">
-                <label for="nombre">Nombre*</label>
-                <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+                <label for="nombre">Nombre*</label> <!-- Label for the name input with a required asterisk -->
+                <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required> <!-- Text input for the user's name, marked as required -->
             </div>
 
             <!-- Last Name Input -->
             <div class="form-group">
-                <label for="apellido">Apellido*</label>
-                <input type="text" id="apellido" name="apellido" placeholder="Tu apellido" required>
+                <label for="apellido">Apellido*</label> <!-- Label for the last name input -->
+                <input type="text" id="apellido" name="apellido" placeholder="Tu apellido" required> <!-- Text input for the user's last name, required -->
             </div>
 
             <!-- Phone Number Input -->
             <div class="form-group">
-                <label for="telefono">Teléfono*</label>
-                <input type="text" id="telefono" name="telefono" placeholder="Tu teléfono" required>
+                <label for="telefono">Teléfono*</label> <!-- Label for the phone number input -->
+                <input type="text" id="telefono" name="telefono" placeholder="Tu teléfono" required> <!-- Text input for the user's phone number, required -->
             </div>
 
             <!-- Email Input -->
             <div class="form-group">
-                <label for="correo">Correo Electrónico*</label>
-                <input type="email" id="correo" name="correo" placeholder="Tu correo" required>
+                <label for="correo">Correo Electrónico*</label> <!-- Label for the email input -->
+                <input type="email" id="correo" name="correo" placeholder="Tu correo" required> <!-- Email input field with validation and required attribute -->
             </div>
 
             <!-- Address Input (Full Width) -->
             <div class="form-group full-width">
-                <label for="direccion">Dirección de Residencia*</label>
-                <input type="text" id="direccion" name="direccion" placeholder="Tu dirección" required>
+                <label for="direccion">Dirección de Residencia*</label> <!-- Label for the address input -->
+                <input type="text" id="direccion" name="direccion" placeholder="Tu dirección" required> <!-- Text input for the user's address, required -->
             </div>
 
             <!-- Department Input -->
             <div class="form-group">
-                <label for="departamento">Departamento*</label>
-                <input type="text" id="departamento" name="departamento" placeholder="Tu departamento" required>
+                <label for="departamento">Departamento*</label> <!-- Label for the department input -->
+                <input type="text" id="departamento" name="departamento" placeholder="Tu departamento" required> <!-- Text input for the user's department, required -->
             </div>
 
             <!-- City Input -->
             <div class="form-group">
-                <label for="ciudad">Ciudad*</label>
-                <input type="text" id="ciudad" name="ciudad" placeholder="Tu ciudad" required>
+                <label for="ciudad">Ciudad*</label> <!-- Label for the city input -->
+                <input type="text" id="ciudad" name="ciudad" placeholder="Tu ciudad" required> <!-- Text input for the user's city, required -->
+            </div>
+
+            <!-- Comment Box (Full Width) -->
+            <div class="comment-box full-width">
+                <label for="comentarios">Comentarios</label> <!-- Label for the comment textarea -->
+                <textarea id="comentarios" name="comentarios" placeholder="Escribe tus comentarios aquí..."></textarea> <!-- Multi-line input for user comments -->
+            </div>
+
+            <!-- Consent Checkbox with Privacy Policy -->
+            <div class="full-width">
+                <label>
+                    <input type="checkbox" id="autorizo" name="autorizo" required> <!-- Checkbox to collect user consent, marked as required -->
+                    Autorizo el tratamiento de mis datos personales de acuerdo con los términos establecidos en la 
+                    <a href="#">POLÍTICA DE PRIVACIDAD</a> <!-- Link to the privacy policy for legal compliance -->
+                </label>
+            </div>
+
+            <!-- Submit Button Container -->
+            <div class="btn-container">
+                <button class="btn-enviar" type="submit">Enviar</button> <!-- Submit button to send the form data -->
             </div>
 
         </form>
@@ -90,9 +110,11 @@
 
     <!-- Footer Section -->
     <footer>
-        <p>&copy; 2025 Nueva Página. Todos los derechos reservados.</p> <!-- Copyright Notice -->
+        <p>&copy; 2025 Nueva Página. Todos los derechos reservados.</p> <!-- Copyright notice with the current year -->
     </footer>
 
+    <!-- External JavaScript File -->
+    <script src="scripts/script_contacto.js"></script> <!-- Link to the external JavaScript file for form functionality -->
 </body>
 
 </html>
