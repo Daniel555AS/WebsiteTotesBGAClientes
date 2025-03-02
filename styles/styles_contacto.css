@@ -388,55 +388,100 @@ input:checked + .slider::before {
     background-color: rgb(0, 30, 120); /* Darkens the button background on hover to provide visual feedback */
 }
 
-/* Footer styling */
+/* Footer Section */
 footer {
-    text-align: center; /* Centers content */
-    padding: 2vh; /* Padding around footer */
-    background-color: rgb(44, 44, 44); /* Dark gray background */
+    display: flex; /* Arranges the columns in a row */
+    flex-direction: column; /* Stacks elements vertically */
+    background-color: rgb(44, 44, 44); /* Background color */
     color: white; /* White text color */
-    margin-top: auto; /* Pushes footer to the bottom */
+    padding: 6vh 80px; /* Adds more space around the edges */
+    margin-top: auto; /* Pushes the footer to the bottom */
+    font-size: 0.9rem; /* Reduces font size */
 }
 
-/* Small screen responsiveness */
-@media (max-width: 768px) {
+/* Main container for the footer content */
+.footer-content {
+    display: flex; /* Aligns columns in a row */
+    justify-content: space-between; /* Distributes columns with space between them */
+    margin-bottom: 20px; /* Space before the divider line */
+}
+
+/* Footer columns */
+.footer-column {
+    flex: 1; /* Ensures equal width for all columns */
+    padding: 0 30px; /* Adds space between columns */
+}
+
+/* Paragraphs within the footer */
+.footer-column p {
+    margin: 8px 0; /* Adds vertical space between paragraphs */
+}
+
+/* Links within the footer */
+.footer-column a {
+    color: white; /* Sets link color to white */
+    text-decoration: none; /* Removes underline from links */
+    font-size: 0.85rem; /* Reduces font size for links */
+}
+
+.footer-column a:hover {
+    text-decoration: underline; /* Underlines links on hover */
+}
+
+/* Icons within the footer */
+.footer-column img {
+    width: 25px; /* Sets icon size */
+    margin-right: 10px; /* Adds space between icons */
+    vertical-align: middle; /* Vertically aligns icons with text */
+}
+
+/* Horizontal line within the footer */
+.footer-divider {
+    border-top: 1px solid white; /* White top border to create a divider */
+    margin: 20px 0; /* Adds space above and below the divider */
+}
+
+/* Copyright message */
+.footer-copyright {
+    text-align: center; /* Centers the copyright text */
+    font-size: 0.8rem; /* Reduces the font size */
+}
+
+/* Responsive styles for small screens
+   - Stacks navigation vertically.
+   - Adjusts image and text sizes for better fit. */
+   @media (max-width: 768px) {
     nav ul {
-        flex-direction: column; /* Stacks nav items vertically */
-        align-items: center; /* Centers nav items */
+        flex-direction: column;
+        align-items: center;
     }
 
     nav ul li {
-        margin: 1vw 0; /* Vertical margin */
+        margin: 1vw 0;
     }
 
     nav ul li a {
-        font-size: 4vw; /* Larger font for small screens */
+        font-size: 4vw;
     }
 
-    #contact-title {
-        font-size: 6vw; /* Larger title font */
+    .polygon-1 {
+        height: 150vh;
     }
 
-    main {
-        padding-top: 12vh; /* Adjust padding for smaller header */
-    }
-
-    #contact-form {
-        grid-template-columns: 1fr; /* Single-column layout */
-        width: 90%; /* Adjusted form width */
-    }
-
-    .form-group label {
-        font-size: 4vw; /* Larger labels */
-    }
-
-    .form-group input {
-        font-size: 3.5vw; /* Larger input text */
+    .right-image {
+        width: 40vw;
+        top: 10vh;
     }
 }
 
-/* Large screen responsiveness */
+/* Responsive styles for large screens
+   - Adjusts font and image sizes for better readability. */
 @media (min-width: 1200px) {
     nav ul li a {
-        font-size: 1.2vw; /* Smaller font for large screens */
+        font-size: 1.2vw;
+    }
+
+    .polygon-1 {
+        height: 180vh;
     }
 }

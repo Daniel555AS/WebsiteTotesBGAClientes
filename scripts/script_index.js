@@ -1,3 +1,15 @@
+// Detects the scroll event to add a shadow effect to the header
+document.addEventListener('scroll', () => {
+    const header = document.getElementById('header'); // Selects the header element by its ID
+
+    // Adds or removes the 'scrolled' class based on the scroll position
+    if (window.scrollY > 50) {
+        header.classList.add('scrolled'); // Adds the 'scrolled' class if the scroll position is greater than 50 pixels
+    } else {
+        header.classList.remove('scrolled'); // Removes the 'scrolled' class if the scroll position is 50 pixels or less
+    }
+});
+
 // Selects the theme switch input element from the DOM
 const themeSwitch = document.getElementById('theme-switch');
 
@@ -20,17 +32,32 @@ function toggleTheme() {
     // Checks if light mode is active
     if (body.classList.contains('light-mode')) {
         // Changes the polygon and logo images to their light mode versions
-        polygon.src = 'assets/claro_figura_inicio_decorativa.svg';
-        logo.src = 'assets/claro_logo_header.png';
+        polygon.src = 'assets/images/claro_figura_inicio_decorativa.svg';
+        logo.src = 'assets/images/claro_logo_header.png';
+        // Saves the mode to localStorage
+        localStorage.setItem('theme', 'light');
     } else {
         // Reverts the polygon and logo images to their dark mode versions
-        polygon.src = 'assets/figura_inicio_decorativa.svg';
-        logo.src = 'assets/logo_header.png';
+        polygon.src = 'assets/images/figura_inicio_decorativa.svg';
+        logo.src = 'assets/images/logo_header.png';
+        // Saves the mode to localStorage
+        localStorage.setItem('theme', 'dark');
     }
 }
 
-// Initializes the default polygon image (dark mode version on page load)
-polygon.src = 'assets/figura_inicio_decorativa.svg';
+// Check if there is a saved theme in localStorage and apply it
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'light') {
+    body.classList.add('light-mode');
+    polygon.src = 'assets/images/claro_figura_inicio_decorativa.svg';
+    logo.src = 'assets/images/claro_logo_header.png';
+    themeSwitch.checked = true; // Set the theme switch to reflect the light mode
+} else if (savedTheme === 'dark') {
+    body.classList.remove('light-mode');
+    polygon.src = 'assets/images/figura_inicio_decorativa.svg';
+    logo.src = 'assets/images/logo_header.png';
+    themeSwitch.checked = false; // Set the theme switch to reflect the dark mode
+}
 
 // Listens for changes on the theme switch and triggers the theme toggle function
 themeSwitch.addEventListener('change', toggleTheme);

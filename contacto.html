@@ -20,7 +20,7 @@
     <!-- Header Section -->
     <header id="header">
         <!-- Website Logo -->
-        <img src="assets/logo_header.png" alt="Logo" id="logo"> <!-- Displays the website logo with an accessible alt description -->
+        <img src="assets/images/logo_header.png" alt="Logo" id="logo"> <!-- Displays the website logo with an accessible alt description -->
 
         <!-- Navigation Menu -->
         <nav>
@@ -104,7 +104,7 @@
                 <label>
                     <input type="checkbox" id="autorizo" name="autorizo" required> <!-- Checkbox to collect user consent, marked as required -->
                     Autorizo el tratamiento de mis datos personales de acuerdo con los términos establecidos en la 
-                    <a href="#">POLÍTICA DE PRIVACIDAD</a> <!-- Link to the privacy policy for legal compliance -->
+                    <a href="assets/documents/POLITICA_DE_TRATAMIENTO_DE_DATOS_PERSONALES_DEL_CONSORCIO_TOTES_BGA_PARA_TERCEROS.pdf" target="_blank">POLÍTICA DE PRIVACIDAD.</a> <!-- Link to the privacy policy for legal compliance -->
                 </label>
             </div>
 
@@ -116,11 +116,37 @@
         </form>
     </main>
 
-    <!-- Footer Section -->
+    <!-- Footer section -->
     <footer>
-        <p>&copy; 2025 Nueva Página. Todos los derechos reservados.</p> <!-- Copyright notice with the current year -->
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>TOTES BGA</h3>
+                <p>DCalle 27 # Carrera 19 – 50 </p>
+                <p>Bucaramanga, Santander</p>
+            </div>
+    
+            <div class="footer-column">
+                <h3>CONSORCIO</h3>
+                <p><a href="assets/documents/POLITICA_DE_TRATAMIENTO_DE_DATOS_PERSONALES_DEL_CONSORCIO_TOTES_BGA_PARA_TERCEROS.pdf" target="_blank">Política de Tratamiento de Datos Personales</a></p>
+            </div>
+    
+            <div class="footer-column">
+                <h3>SÍGUENOS</h3>
+                <a href="https://www.facebook.com/?locale=es_LA" target="_blank"><img src="assets/images/facebook_logo.png" alt="Facebook"></a>
+                <a href="https://www.youtube.com/?app=desktop&hl=es" target="_blank"><img src="assets/images/youtube_logo.png" alt="Instagram"></a>
+                <a href="https://co.linkedin.com/" target="_blank"><img src="assets/images/linkedin_logo.png" alt="Twitter"></a>
+            </div>
+        </div>
+    
+        <!-- Horizontal line inside the footer -->
+        <div class="footer-divider"></div>
+    
+        <!-- Copyright Message -->
+        <div class="footer-copyright">
+            © 2025 TOTES BGA. Todos los derechos reservados.
+        </div>
     </footer>
-
+    
     <!-- External JavaScript File -->
     <script src="scripts/script_contacto.js"></script> <!-- Link to the external JavaScript file for form functionality -->
 </body>

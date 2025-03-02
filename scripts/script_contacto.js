@@ -10,10 +10,13 @@ document.addEventListener('scroll', () => {
     }
 });
 
-// Selects the theme toggle button
+// Selects the theme switch input element from the DOM
 const modeToggle = document.getElementById('theme-switch');
 
-// Selects the page logo image
+// Stores a reference to the body element for class manipulation
+const body = document.body;
+
+// Selects the logo image element
 const logo = document.getElementById('logo');
 
 /**
@@ -21,24 +24,48 @@ const logo = document.getElementById('logo');
  */
 function toggleTheme() {
     // Toggles the 'light-mode' class on the body element
-    document.body.classList.toggle('light-mode');
+    body.classList.toggle('light-mode');
 
     // Checks if light mode is active
-    if (document.body.classList.contains('light-mode')) {
+    if (body.classList.contains('light-mode')) {
         // Changes the logo to the light mode version
         logo.src = 'assets/claro_logo_header.png';
-        // Updates the button text to indicate the option to switch to dark mode
-        modeToggle.textContent = 'Dark Mode';
+        // Saves the mode to localStorage
+        localStorage.setItem('theme', 'light');
     } else {
         // Reverts the logo to the dark mode version
         logo.src = 'assets/logo_header.png';
-        // Updates the button text to indicate the option to switch to light mode
-        modeToggle.textContent = 'Light Mode';
+        // Saves the mode to localStorage
+        localStorage.setItem('theme', 'dark');
     }
 }
 
-// Sets the default logo (dark mode version when the page loads)
-logo.src = 'assets/logo_header.png';
+// Check if there is a saved theme in localStorage and apply it
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'light') {
+    body.classList.add('light-mode');
+    logo.src = 'assets/images/claro_logo_header.png';
+    modeToggle.checked = true;  // Ensures the slider is set to "light mode"
+} else if (savedTheme === 'dark') {
+    body.classList.remove('light-mode');
+    logo.src = 'assets/images/logo_header.png';
+    modeToggle.checked = false; // Ensures the slider is set to "dark mode"
+}
 
 // Adds a click event listener to the theme toggle button to switch themes
 modeToggle.addEventListener('click', toggleTheme);
+
+// Function to sync slider icon depending on the theme
+modeToggle.addEventListener('change', () => {
+    if (modeToggle.checked) {
+        // Light mode
+        logo.src = 'assets/images/claro_logo_header.png';
+        body.classList.add('light-mode');
+        localStorage.setItem('theme', 'light');
+    } else {
+        // Dark mode
+        logo.src = 'assets/images/logo_header.png';
+        body.classList.remove('light-mode');
+        localStorage.setItem('theme', 'dark');
+    }
+});
