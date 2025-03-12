@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- Ensures proper rendering and touch zooming on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empresa Matriz</title>
+
+    <!-- Link to Google Fonts for custom typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Link to external CSS stylesheet for styling -->
+    <link rel="stylesheet" href="styles/styles_premium_a2.css">
+</head>
+
+<body>
+
+    <!-- Header section: contains the logo, navigation menu, and theme toggle -->
+    <header id="header">
+
+        <!-- Logo positioned on the left side of the header -->
+        <img src="assets/images/logo_header.png" alt="TotesBGA" id="logo">
+
+        <!-- Navigation menu for website sections -->
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li> <!-- Home page link -->
+                <li><a href="matriz.html">Matriz</a></li> <!-- Matrix section link -->
+                <li><a href="#vehicles">Vehículos</a></li> <!-- Vehicles section anchor link -->
+                <li><a href="#accesorios">Accesorios</a></li> <!-- Accessories section anchor link -->
+                <li><a href="#spare-parts">Repuestos</a></li> <!-- Spare parts section anchor link -->
+                <li><a href="#workshop">Taller</a></li> <!-- Workshop section anchor link -->
+                <li><a href="contacto.html">Contacto</a></li> <!-- Contact page link -->
+            </ul>
+        </nav>
+
+        <!-- Theme toggle switch (Light/Dark mode) -->
+        <div class="theme-toggle">
+            <label class="switch" aria-label="Change theme (Light/Dark)">
+                <!-- Checkbox input to switch themes -->
+                <input type="checkbox" id="theme-switch">
+                <span class="slider"></span> <!-- Custom slider for the toggle switch -->
+            </label>
+        </div>
+    </header>
+
+    <!-- Main content section: displays vehicle details -->
+    <main>
+        <!-- Vehicle brand and model information -->
+        <div class="ferrari">Ferrari</div> <!-- Car brand -->
+        <div class="urbano-sport">URBANO SPORT</div> <!-- Car model -->
+
+        <!-- Main car image showcasing the premium model -->
+        <img class="premium-a1-1" src="assets/images/carro_premium_a1.png" alt="Carro premium A2">
+
+        <!-- Car acceleration information (0-100 km/h) -->
+        <div class="texto-aceleracion">
+            <span>4,2<span class="segundos">s</span></span><br> <!-- Acceleration time in seconds -->
+        </div>
+        <div class="info-aceleracion">Aceleración 0 - 100 Km/h</div> <!-- Label for acceleration info -->
+
+        <!-- Maximum speed information -->
+        <div class="texto-velocidad">
+            <span>320 <span class="km-h">km/h</span></span><br> <!-- Top speed -->
+        </div>
+        <div class="info-velocidad">Velocidad Máxima</div> <!-- Label for maximum speed info -->
+
+        <!-- Vehicle condition (e.g., new or used) -->
+        <div class="texto-condicion">Nuevo</div> <!-- "New" condition -->
+        <div class="info-condicion">Condición</div> <!-- Label for condition -->
+
+        <!-- Price information in COP (Colombian Pesos) -->
+        <div class="texto-precio">$500.000.000</div> <!-- Vehicle price -->
+        <div class="info-precio">*Precio COP</div> <!-- Price currency specification -->
+
+        <!-- Manufacturing year of the vehicle -->
+        <div class="year">2025</div> <!-- Vehicle manufacturing year -->
+
+        <!-- Vehicle description with technical and luxury features -->
+        <div class="text-premium-a1">
+            El Ferrari Urbano-Sport redefine el concepto<br> 
+            de un superdeportivo urbano. Con un diseño<br> 
+            aerodinámico y un motor V8 biturbo, este<br>
+            vehículo ofrece un rendimiento excepcional<br>
+            sin sacrificar la comodidad. Equipado con la<br>
+            última tecnología en asistencia al conductor<br>
+            y un interior de lujo, es perfecto tanto para la<br>
+            ciudad como para la carretera.
+        </div>
+
+        <!-- Decorative car image to enhance visual appeal -->
+        <img class="premium-a1-2" src="assets/images/deco_carro_premium_a1.png" alt="Carro premium A2 - Deco">     
+    </main>
+
+    <!-- Footer section: includes contact details, data policy, and social media links -->
+    <footer>
+        <div class="footer-content">
+
+            <!-- Contact information column -->
+            <div class="footer-column">
+                <h3>TOTES BGA</h3> <!-- Company name -->
+                <p>Calle 27 # Carrera 19 – 50 </p> <!-- Street address -->
+                <p>Bucaramanga, Santander</p> <!-- City and region -->
+            </div>
+
+            <!-- Data protection policy column with downloadable link -->
+            <div class="footer-column">
+                <h3>CONSORCIO</h3>
+                <p>
+                    <!-- Link to the Personal Data Processing Policy PDF -->
+                    <a href="assets/documents/POLITICA_DE_TRATAMIENTO_DE_DATOS_PERSONALES_DEL_CONSORCIO_TOTES_BGA_PARA_TERCEROS.pdf" target="_blank">
+                        Personal Data Processing Policy
+                    </a>
+                </p>
+            </div>
+
+            <!-- Social media links column -->
+            <div class="footer-column">
+                <h3>FOLLOW US</h3> <!-- Social media heading -->
+
+                <!-- Facebook link with icon -->
+                <a href="https://www.facebook.com/?locale=es_LA" target="_blank">
+                    <img src="assets/images/facebook_logo.png" alt="Facebook">
+                </a>
+
+                <!-- YouTube link with icon -->
+                <a href="https://www.youtube.com/?app=desktop&hl=es" target="_blank">
+                    <img src="assets/images/youtube_logo.png" alt="YouTube">
+                </a>
+
+                <!-- LinkedIn link with icon -->
+                <a href="https://co.linkedin.com/" target="_blank">
+                    <img src="assets/images/linkedin_logo.png" alt="LinkedIn">
+                </a>
+            </div>
+
+        </div>
+
+        <!-- Horizontal divider line to separate footer sections -->
+        <div class="footer-divider"></div>
+
+        <!-- Copyright notice -->
+        <div class="footer-copyright">
+            © 2025 TOTES BGA. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- Link to external JavaScript file for interactive features -->
+    <script src="scripts/script_premium_a2.js"></script>
+</body>
+
+</html>

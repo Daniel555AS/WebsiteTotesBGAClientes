@@ -11,13 +11,10 @@ document.addEventListener('scroll', () => {
 });
 
 // Selects the theme switch input element from the DOM
-const themeSwitch = document.getElementById('theme-switch');
+const modeToggle = document.getElementById('theme-switch');
 
 // Stores a reference to the body element for class manipulation
 const body = document.body;
-
-// Selects the first element with the class 'polygon-1' (decorative polygon image)
-const polygon = document.querySelector('.polygon-1');
 
 // Selects the logo image element
 const logo = document.getElementById('logo');
@@ -31,15 +28,13 @@ function toggleTheme() {
 
     // Checks if light mode is active
     if (body.classList.contains('light-mode')) {
-        // Changes the polygon and logo images to their light mode versions
-        polygon.src = 'assets/images/claro_figura_inicio_decorativa.svg';
-        logo.src = 'assets/images/claro_logo_header.png';
+        // Changes the logo to the light mode version
+        logo.src = 'assets/claro_logo_header.png';
         // Saves the mode to localStorage
         localStorage.setItem('theme', 'light');
     } else {
-        // Reverts the polygon and logo images to their dark mode versions
-        polygon.src = 'assets/images/figura_inicio_decorativa.svg';
-        logo.src = 'assets/images/logo_header.png';
+        // Reverts the logo to the dark mode version
+        logo.src = 'assets/logo_header.png';
         // Saves the mode to localStorage
         localStorage.setItem('theme', 'dark');
     }
@@ -49,23 +44,28 @@ function toggleTheme() {
 const savedTheme = localStorage.getItem('theme');
 if (savedTheme === 'light') {
     body.classList.add('light-mode');
-    polygon.src = 'assets/images/claro_figura_inicio_decorativa.svg';
     logo.src = 'assets/images/claro_logo_header.png';
-    themeSwitch.checked = true; // Set the theme switch to reflect the light mode
+    modeToggle.checked = true;  // Ensures the slider is set to "light mode"
 } else if (savedTheme === 'dark') {
     body.classList.remove('light-mode');
-    polygon.src = 'assets/images/figura_inicio_decorativa.svg';
     logo.src = 'assets/images/logo_header.png';
-    themeSwitch.checked = false; // Set the theme switch to reflect the dark mode
+    modeToggle.checked = false; // Ensures the slider is set to "dark mode"
 }
 
-// Listens for changes on the theme switch and triggers the theme toggle function
-themeSwitch.addEventListener('change', toggleTheme);
+// Adds a click event listener to the theme toggle button to switch themes
+modeToggle.addEventListener('click', toggleTheme);
 
-const infoButton = document.querySelector('.btn-elige');
-
-if (infoButton) {
-    infoButton.addEventListener('click', () => {
-        window.location.href = 'matriz.html'; 
-    });
-}
+// Function to sync slider icon depending on the theme
+modeToggle.addEventListener('change', () => {
+    if (modeToggle.checked) {
+        // Light mode
+        logo.src = 'assets/images/claro_logo_header.png';
+        body.classList.add('light-mode');
+        localStorage.setItem('theme', 'light');
+    } else {
+        // Dark mode
+        logo.src = 'assets/images/logo_header.png';
+        body.classList.remove('light-mode');
+        localStorage.setItem('theme', 'dark');
+    }
+});
