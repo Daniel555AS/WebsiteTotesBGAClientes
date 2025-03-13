@@ -77,3 +77,10 @@ if (infoButton) {
         window.location.href = 'premium_a2.html'; 
     });
 }
+const infoButton1 = document.querySelector('.btn-premium-a1');
+
+if (infoButton1) {
+    infoButton1.addEventListener('click', () => {
+        window.location.href = 'premium_a1.html'; 
+    });
+}
