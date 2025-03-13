@@ -10,6 +10,29 @@ document.addEventListener('scroll', () => {
     }
 });
 
+let currentSlide = 0;
+
+const carouselTrack = document.querySelector('.carousel-track');
+const slides = document.querySelectorAll('.carousel-slide');
+const prevButton = document.querySelector('.prev-button');
+const nextButton = document.querySelector('.next-button');
+
+function changeSlide(newIndex) {
+    const totalSlides = slides.length;
+    if (newIndex < 0) {
+        newIndex = totalSlides - 1; // Si es menor que 0, va al último slide
+    } else if (newIndex >= totalSlides) {
+        newIndex = 0; // Si es mayor que el total, vuelve al primero
+    }
+
+    const slideWidth = slides[0].offsetWidth;
+    carouselTrack.style.transform = `translateX(-${newIndex * slideWidth}px)`;
+    currentSlide = newIndex;
+}
+
+prevButton.addEventListener('click', () => changeSlide(currentSlide - 1));
+nextButton.addEventListener('click', () => changeSlide(currentSlide + 1));
+
 // Selects the theme switch input element from the DOM
 const modeToggle = document.getElementById('theme-switch');
 

@@ -189,9 +189,9 @@ input:checked + .slider::before {
 /* Styles for the "premium-a1-1" class, likely used for an image or main visual element */
 .premium-a1-1 {
     position: relative; /* Positions the element relative to its normal position in the document flow */
-    top: 20vh; /* Moves the element 20% down relative to the viewport height (vh = viewport height unit) */
-    left: 0vw; /* Keeps the element aligned with the left edge of the viewport (0% of the viewport width) */
-    width: 50vw; /* Sets the element's width to 50% of the viewport width, making it responsive */
+    top: 14vh; /* Moves the element 20% down relative to the viewport height (vh = viewport height unit) */
+    left: 4vw; /* Keeps the element aligned with the left edge of the viewport (0% of the viewport width) */
+    width: 70vw; /* Sets the element's width to 50% of the viewport width, making it responsive */
     height: auto; /* Automatically adjusts the height to maintain the element’s aspect ratio */
     z-index: 2; /* Ensures the element appears above content with a lower z-index value */
     overflow: hidden; /* Hides any content that overflows the element’s boundaries */
@@ -373,18 +373,81 @@ input:checked + .slider::before {
 }
 
 /* Changes the color of the "text-premium-a1" element in light mode */
-.light-mode .text-premium-a1 {
+.light-mode .text-premium-a2 {
     color: black; /* Updates the text color to black for better contrast in light mode */
 }
 
-.premium-a1-2 {
-    position: relative; /* Posiciona el elemento en relación con su posición normal. */
-    top: 50vh; /* Mueve el elemento hacia abajo un 50% de la altura de la pantalla. */
-    left: 20vw; /* Mueve el elemento hacia la derecha un 20% del ancho de la pantalla. */
-    width: 40vw; /* Establece el ancho del elemento al 40% del ancho de la pantalla. */
-    height: auto; /* Ajusta la altura automáticamente según el contenido. */
-    z-index: 2; /* Coloca el elemento por encima de los que tienen un z-index menor. */
-    overflow: hidden; /* Oculta el contenido que se salga del tamaño del elemento. */
+.carousel-slide {
+    min-width: 100%; /* Asegura que cada slide ocupe todo el ancho del carrusel */
+    height: 30vh;
+    background-size: cover;
+    background-position: center;
+    flex-shrink: 0; /* Evita que los slides se reduzcan de tamaño */
+}
+
+.contcarousel {
+    position: relative;
+    top: 50vh; /* Mantiene la posición según lo solicitado */
+    left: 20vw;
+    width: 40vw;
+    height: 30vh; /* Asegura que la altura sea consistente */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease;
+    width: 100%; /* Ajusta el ancho del track al tamaño del contenedor */
+}
+.next-button {
+    position: absolute;
+  
+    top: 50%;
+  
+    transform: translateY(-50%);
+  
+    background: rgba(0, 0, 0, 0.5);
+  
+    color: white;
+  
+    padding: 1vh;
+  
+    border: none;
+  
+    cursor: pointer; 
+}
+
+.prev-button{
+    position: absolute;
+  
+    top: 50%;
+  
+    transform: translateY(-50%);
+  
+    background: rgba(0, 0, 0, 0.5);
+  
+    color: white;
+  
+    padding: 1vh;
+  
+    border: none;
+  
+    cursor: pointer;
+  
+  }
+
+.prev-button {
+
+    left: 1vh;
+  
+}
+  
+.next-button {
+  
+    right: 1vh;
+  
 }
 
 /* Main content styling */
