@@ -1,3 +1,27 @@
+document.addEventListener('DOMContentLoaded', async () => {
+    const identifierTypeSelect = document.getElementById('identifier-type');
+
+    try {
+        const response = await fetch('http://localhost:8080/identifier-type'); // Petición GET
+        if (!response.ok) {
+            throw new Error(`Error en la solicitud: ${response.statusText}`);
+        }
+
+        const identifierTypes = await response.json(); // Convertir respuesta a JSON
+
+        // Llenar el select con los tipos de identificador obtenidos
+        identifierTypes.forEach(type => {
+            const option = document.createElement('option');
+            option.value = type.id;  // Suponiendo que tiene un campo "id"
+            option.textContent = type.name; // Suponiendo que tiene un campo "name"
+            identifierTypeSelect.appendChild(option);
+        });
+
+    } catch (error) {
+        console.error('Error al obtener los tipos de identificador:', error);
+    }
+});
+
 function validateForm() {
     let valid = true;
     
@@ -90,30 +114,6 @@ function validateForm() {
       document.addEventListener('click', function() {
         dropdownListTime.style.display = 'none';
       });
-      
-document.addEventListener('DOMContentLoaded', async () => {
-    const identifierTypeSelect = document.getElementById('identifier-type');
-
-    try {
-        const response = await fetch('http://localhost:8080/identifier-type'); // Petición GET
-        if (!response.ok) {
-            throw new Error(`Error en la solicitud: ${response.statusText}`);
-        }
-
-        const identifierTypes = await response.json(); // Convertir respuesta a JSON
-
-        // Llenar el select con los tipos de identificador obtenidos
-        identifierTypes.forEach(type => {
-            const option = document.createElement('option');
-            option.value = type.id;  // Suponiendo que tiene un campo "id"
-            option.textContent = type.name; // Suponiendo que tiene un campo "name"
-            identifierTypeSelect.appendChild(option);
-        });
-
-    } catch (error) {
-        console.error('Error al obtener los tipos de identificador:', error);
-    }
-});
 
 document.addEventListener("DOMContentLoaded", function () {
     const tipoPersona = document.getElementById("tipo_persona");
