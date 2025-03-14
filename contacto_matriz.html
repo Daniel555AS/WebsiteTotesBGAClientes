@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto</title>
+
+    <!-- Link to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Link to external CSS stylesheet -->
+    <link rel="stylesheet" href="styles/styles_contacto_matriz.css">
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header id="header">
+        <img src="assets/images/logo_header.png" alt="Logo" id="logo">
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="#matrix">Matriz</a></li>
+                <li><a href="#vehicles">Vehículos</a></li>
+                <li><a href="#accesorios">Accesorios</a></li>
+                <li><a href="#spare-parts">Repuestos</a></li>
+                <li><a href="#workshop">Taller</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+        <div class="theme-toggle">
+            <label class="switch" aria-label="Cambiar tema (Claro/Oscuro)">
+                <input type="checkbox" id="theme-switch">
+                <span class="slider"></span>
+            </label>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <h1 id="contact-title">QUEREMOS ESCUCHARTE</h1>
+        <form id="contact-form" action="#" method="POST" onsubmit="return validateForm()">
+            <!-- Name Input -->
+            <div class="form-group">
+                <label for="nombre">Nombre*</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+                <small id="error-nombre" class="error-message"></small>
+            </div>
+        
+            <!-- Last Name Input -->
+            <div class="form-group">
+                <label for="apellido">Apellido*</label>
+                <input type="text" id="apellido" name="apellido" placeholder="Tu apellido" required>
+                <small id="error-apellido" class="error-message"></small>
+            </div>
+        
+            <!-- Phone Number Input -->
+            <div class="form-group">
+                <label for="telefono">Teléfono*</label>
+                <input type="text" id="telefono" name="telefono" placeholder="Tu teléfono" required>
+                <small id="error-telefono" class="error-message"></small>
+            </div>
+            
+            <div class="form-group">
+                <label for="identifier-type">Tipo de identificacion*</label>
+                <select id="identifier-type" id="identifier-type" required>
+                    <option value="">Seleccione una opción</option>
+                  </select>
+                <small id="error-telefono" class="error-message"></small>
+            </div>
+        
+            <!-- Cédula Input (se muestra cuando NO es empresa) -->
+            <div class="form-group" id="group-cedula">
+                <label for="cedula">Cédula*</label>
+                <input type="text" id="cedula" name="cedula" placeholder="Tu cédula" required>
+                <small id="error-cedula" class="error-message"></small>
+            </div>
+        
+            <!-- NIT Input (se muestra cuando es empresa) -->
+            <div class="form-group" id="group-nit">
+                <label for="NIT">NIT*</label>
+                <input type="text" id="NIT" name="NIT" placeholder="Tu NIT" required>
+                <small id="error-NIT" class="error-message"></small>
+            </div>
+        
+            <!-- Email Input -->
+            <div class="form-group">
+                <label for="correo">Correo Electrónico*</label>
+                <input type="email" id="correo" name="correo" placeholder="Tu correo electrónico" required>
+                <small id="error-correo" class="error-message"></small>
+            </div>
+
+            <!-- Date Input -->
+            <label for="date">Fecha:</label>
+            <input type="datetime-local" id="date" name="date" step="1800">
+
+            <!-- Consent Checkbox with Privacy Policy -->
+            <div class="full-width">
+                <label>
+                    <input type="checkbox" id="autorizo" name="autorizo" required>
+                    Autorizo el tratamiento de mis datos personales de acuerdo con los términos establecidos en la 
+                    <a href="assets/documents/POLITICA_DE_TRATAMIENTO_DE_DATOS_PERSONALES_DEL_CONSORCIO_TOTES_BGA_PARA_TERCEROS.pdf" target="_blank">POLÍTICA DE PRIVACIDAD.</a>
+                </label>
+            </div>        
+            <!-- Submit Button Container -->
+            <div class="btn-container">
+                <button class="btn-enviar" type="submit">Enviar</button>
+            </div>
+        
+        </form>
+    </main>
+    
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>TOTES BGA</h3>
+                <p>DCalle 27 # Carrera 19 – 50 </p>
+                <p>Bucaramanga, Santander</p>
+            </div>
+    
+            <div class="footer-column">
+                <h3>CONSORCIO</h3>
+                <p><a href="assets/documents/POLITICA_DE_TRATAMIENTO_DE_DATOS_PERSONALES_DEL_CONSORCIO_TOTES_BGA_PARA_TERCEROS.pdf" target="_blank">Política de Tratamiento de Datos Personales</a></p>
+            </div>
+    
+            <div class="footer-column">
+                <h3>SÍGUENOS</h3>
+                <a href="https://www.facebook.com/?locale=es_LA" target="_blank"><img src="assets/images/facebook_logo.png" alt="Facebook"></a>
+                <a href="https://www.youtube.com/?app=desktop&hl=es" target="_blank"><img src="assets/images/youtube_logo.png" alt="Instagram"></a>
+                <a href="https://co.linkedin.com/" target="_blank"><img src="assets/images/linkedin_logo.png" alt="Twitter"></a>
+            </div>
+        </div>
+    
+        <div class="footer-divider"></div>
+    
+        <div class="footer-copyright">
+            © 2025 TOTES BGA. Todos los derechos reservados.
+        </div>
+    </footer>
+    <!-- External JavaScript File -->
+    <script src="scripts/script_contacto_matriz.js"></script>
+</body>
+
+</html>
