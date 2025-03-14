@@ -69,3 +69,70 @@ modeToggle.addEventListener('change', () => {
         localStorage.setItem('theme', 'dark');
     }
 });
+
+// Select the input element with the ID 'telefono'
+const telefonoInput = document.getElementById('telefono');
+
+// Check if the input element exists in the DOM
+if (telefonoInput) {
+    // Add an event listener to the 'keydown' event (when a key is pressed)
+    telefonoInput.addEventListener('keydown', (event) => {
+        // Allow only numeric characters [0-9] and essential control keys (backspace, delete, arrow keys, tab)
+        if (
+            !/[0-9]/.test(event.key) && // Ensure the key is a digit (0-9)
+            !['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight', 'Tab'].includes(event.key) // Allow specific control keys
+        ) {
+            event.preventDefault(); // Block any other key press
+        }
+    });
+}
+
+// Wait for the DOM to be fully loaded before running the script
+document.addEventListener('DOMContentLoaded', () => {
+    // Select the form element with the ID 'contact-form'
+    const contactForm = document.getElementById('contact-form');
+
+    // Add a submit event listener to the contact form
+    contactForm.addEventListener('submit', async (event) => {
+        event.preventDefault(); // Prevent the default form submission behavior
+
+        // Collect form data from input fields
+        const formData = {
+            name: document.getElementById('nombre').value, // Get the value of the 'nombre' input
+            last_name: document.getElementById('apellido').value, // Get the value of the 'apellido' input
+            email: document.getElementById('correo').value, // Get the value of the 'correo' input
+            phone: document.getElementById('telefono').value || null, // Get 'telefono' value or null if empty
+            residence_state: document.getElementById('departamento').value, // Get the value of 'departamento'
+            residence_city: document.getElementById('ciudad').value, // Get the value of 'ciudad'
+            comment: document.getElementById('comentarios').value || null // Get 'comentarios' value or null if empty
+        };
+
+        try {
+            // Send a POST request to the backend server endpoint
+            const response = await fetch('http://localhost:8080/comment', {
+                method: 'POST', // HTTP method used for sending data
+                headers: {
+                    'Content-Type': 'application/json' // Indicate that the payload is in JSON format
+                },
+                body: JSON.stringify(formData) // Convert form data to a JSON string
+            });
+
+            // Check if the request was successful (status code 200-299)
+            if (!response.ok) {
+                throw new Error(`Request error: ${response.statusText}`); // Throw an error if the request fails
+            }
+
+            // Parse the JSON response from the server
+            const result = await response.json();
+            alert('El comentario fue enviado con éxito :)'); // Notify the user of a successful submission
+            contactForm.reset(); // Clear the form fields after successful submission
+            console.log('Server response:', result); // Log the server response to the console
+        } catch (error) {
+            // Handle errors during the fetch operation
+            console.error('Hubo un error al enviar el comentario', error); // Log the error to the console
+            alert('There was a problem sending the comment.'); // Notify the user of an error
+        }
+    });
+});
+
+
