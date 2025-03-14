@@ -24,20 +24,73 @@ function validateForm() {
     return valid;
 }
 
-document.getElementById("date").addEventListener("change", function () {
-    let input = this;
-    let date = new Date(input.value);
-    let minutes = date.getMinutes();
-
-    // Redondear los minutos al múltiplo de 30 más cercano
-    let correctedMinutes = Math.round(minutes / 30) * 30;
-    date.setMinutes(correctedMinutes, 0, 0);
-
-    // Formatear correctamente la fecha para el input
-    let formattedDate = date.toISOString().slice(0, 16);
-    input.value = formattedDate;
-});;
-
+      /* --- Dropdown personalizado para FECHA (próximos 30 días) --- */
+      const dropdownDate = document.getElementById('custom-dropdown-date');
+      const dropdownSelectedDate = dropdownDate.querySelector('.dropdown-selected');
+      const dropdownListDate = dropdownDate.querySelector('.dropdown-list');
+      const hiddenInputDate = document.getElementById('fecha');
+  
+      const today = new Date();
+      const daysToGenerate = 30; // Puedes ajustar el rango de fechas disponibles
+      for (let i = 0; i < daysToGenerate; i++) {
+        const dateOption = new Date(today);
+        dateOption.setDate(today.getDate() + i);
+        const year = dateOption.getFullYear();
+        const month = String(dateOption.getMonth() + 1).padStart(2, '0');
+        const day = String(dateOption.getDate()).padStart(2, '0');
+        const formattedDate = `${year}-${month}-${day}`;
+        const optionDiv = document.createElement('div');
+        optionDiv.className = 'dropdown-option';
+        optionDiv.textContent = formattedDate;
+        optionDiv.addEventListener('click', function() {
+          dropdownSelectedDate.textContent = formattedDate;
+          hiddenInputDate.value = formattedDate;
+          dropdownListDate.style.display = 'none';
+        });
+        dropdownListDate.appendChild(optionDiv);
+      }
+  
+      dropdownSelectedDate.addEventListener('click', function(e) {
+        e.stopPropagation();
+        dropdownListDate.style.display = dropdownListDate.style.display === 'block' ? 'none' : 'block';
+      });
+  
+      document.addEventListener('click', function() {
+        dropdownListDate.style.display = 'none';
+      });
+  
+      /* --- Dropdown personalizado para HORA (intervalos de 30 minutos) --- */
+      const dropdownTime = document.getElementById('custom-dropdown-time');
+      const dropdownSelectedTime = dropdownTime.querySelector('.dropdown-selected');
+      const dropdownListTime = dropdownTime.querySelector('.dropdown-list');
+      const hiddenInputTime = document.getElementById('hora-time');
+  
+      for (let h = 0; h < 24; h++) {
+        for (let m = 0; m < 60; m += 30) {
+          const hour = String(h).padStart(2, '0');
+          const minute = String(m).padStart(2, '0');
+          const timeValue = `${hour}:${minute}`;
+          const optionDiv = document.createElement('div');
+          optionDiv.className = 'dropdown-option';
+          optionDiv.textContent = timeValue;
+          optionDiv.addEventListener('click', function() {
+            dropdownSelectedTime.textContent = timeValue;
+            hiddenInputTime.value = timeValue;
+            dropdownListTime.style.display = 'none';
+          });
+          dropdownListTime.appendChild(optionDiv);
+        }
+      }
+  
+      dropdownSelectedTime.addEventListener('click', function(e) {
+        e.stopPropagation();
+        dropdownListTime.style.display = dropdownListTime.style.display === 'block' ? 'none' : 'block';
+      });
+  
+      document.addEventListener('click', function() {
+        dropdownListTime.style.display = 'none';
+      });
+      
 document.addEventListener('DOMContentLoaded', async () => {
     const identifierTypeSelect = document.getElementById('identifier-type');
 

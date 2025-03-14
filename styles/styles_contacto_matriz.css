@@ -1,524 +1,408 @@
 /* General body styling */
 body {
-    font-family: 'Poppins', sans-serif; /* Sets the font family */
-    margin: 0; /* Removes default margin */
-    padding: 0; /* Removes default padding */
-    box-sizing: border-box; /* Ensures padding and border are included in the element's total width and height */
-    background-color: rgb(30, 30, 30); /* Dark background color */
-    color: white; /* White text color */
-    display: flex; /* Enables flexbox layout */
-    flex-direction: column; /* Stacks flex items vertically */
-    height: 100vh; /* Full viewport height */
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: rgb(30, 30, 30);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
 }
 
 /* Header styling */
-/* Header with background and transition */
 header {
-    background-color: rgb(30, 30, 30); /* Matches the body's background */
-    color: white; /* White text color */
-    padding: 2vh 5vw; /* Vertical and horizontal padding */
-    display: flex; /* Uses flexbox for layout */
-    justify-content: flex-start; /* Aligns content to the left */
-    align-items: center; /* Centers content vertically */
-    position: fixed; /* Fixes the header at the top of the viewport */
-    top: 0; /* Positions the header at the top */
-    left: 0; /* Aligns the header to the left */
-    width: 100%; /* Makes the header full width */
-    z-index: 1000; /* Ensures the header is above other elements */
-    transition: box-shadow 0.3s ease; /* Smooth transition for the shadow effect */
+    background-color: rgb(30, 30, 30);
+    color: white;
+    padding: 2vh 5vw;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: box-shadow 0.3s ease;
 }
-
-/* Header shadow on scroll */
 header.scrolled {
-    box-shadow: 0 8px 20px rgba(210, 191, 195, 0.8); /* Adds a soft shadow when scrolled */
+    box-shadow: 0 8px 20px rgba(210, 191, 195, 0.8);
 }
-
-/* Logo styling */
 #logo {
-    width: 15vw; /* Responsive logo width */
-    height: auto; /* Keeps aspect ratio */
-    margin-right: 3vw; /* Space to the right */
-    margin-left: -1vw; /* Adjusted space to the left */
-    margin-top: 1vw; /* Space at the top */
+    width: 15vw;
+    height: auto;
+    margin-right: 3vw;
+    margin-left: -1vw;
+    margin-top: 1vw;
 }
-
-/* Navigation styling */
 nav ul {
-    list-style: none; /* Removes bullet points */
-    padding: 0; /* Removes padding */
-    margin: 0; /* Removes margin */
-    display: flex; /* Horizontal flex layout */
-    align-items: center; /* Vertically centers items */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
 }
-
 nav ul li {
-    margin: 0 1.5vw; /* Horizontal margin between items */
+    margin: 0 1.5vw;
 }
-
 nav ul li a {
-    color: white; /* White text color */
-    text-decoration: none; /* Removes underline */
-    font-size: 1.5vw; /* Responsive font size */
-    font-family: 'Poppins', sans-serif; /* Consistent font family */
-    font-weight: normal; /* Normal text */
-    position: relative; /* Allows positioning of pseudo-elements */
-    padding-bottom: 5px; /* Space below the link */
+    color: white;
+    text-decoration: none;
+    font-size: 1.5vw;
+    font-family: 'Poppins', sans-serif;
+    font-weight: normal;
+    position: relative;
+    padding-bottom: 5px;
 }
-
-/* Underline animation on hover */
 nav ul li a::after {
-    content: ''; /* Empty content for pseudo-element */
-    position: absolute; /* Absolute position relative to link */
-    left: 0; /* Aligns to the left */
-    bottom: 0; /* Positions at the bottom */
-    width: 100%; /* Full width */
-    height: 2px; /* Line height */
-    background-color: rgb(255, 51, 95); /* Pink underline color */
-    transform: scaleX(0); /* Initially hidden */
-    transform-origin: bottom left; /* Animation starts from the left */
-    transition: transform 0.3s ease; /* Smooth scaling animation */
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: rgb(255, 51, 95);
+    transform: scaleX(0);
+    transform-origin: bottom left;
+    transition: transform 0.3s ease;
 }
-
 nav ul li a:hover::after {
-    transform: scaleX(1); /* Full width on hover */
+    transform: scaleX(1);
 }
 
 /* Main content styling */
 main {
-    flex-grow: 1; /* Allows main content to expand */
-    display: flex; /* Flexbox layout */
-    flex-direction: column; /* Stacks items vertically */
-    align-items: center; /* Centers content horizontally */
-    justify-content: flex-start; /* Aligns content at the top */
-    padding-top: 15vh; /* Space below the fixed header */
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 15vh;
 }
-
-/* Contact title styling */
 #contact-title {
-    font-size: 3vw; /* Responsive font size */
-    color: rgb(255, 51, 95); /* Pink text color */
-    text-align: center; /* Centers text */
-    font-weight: normal; /* Normal font weight */
-    margin-bottom: 2vh; /* Space below the title */
-    margin-top: 5vh; /* Space above the title */
+    font-size: 3vw;
+    color: rgb(255, 51, 95);
+    text-align: center;
+    font-weight: normal;
+    margin-bottom: 2vh;
+    margin-top: 5vh;
 }
 
 /* Contact form styling */
 #contact-form {
-    display: grid; /* Grid layout */
-    grid-template-columns: 1fr 1fr; /* Two equal columns */
-    gap: 2vw; /* Space between grid items */
-    width: 80%; /* Form width */
-    max-width: 800px; /* Maximum form width */
-    margin: 5vh auto; /* Center form with margin */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2vw;
+    width: 80%;
+    max-width: 800px;
+    margin: 5vh auto;
 }
 
-/* Form group styling for single-column inputs */
-.form-group-CC {
-    display: flex; /* Flexbox for alignment */
-    flex-direction: column; /* Stack items vertically */
-}
-
+.form-group,
+.form-group-CC,
 .form-group-NIT {
-    display: none; /* Flexbox for alignment */
-    flex-direction: column; /* Stack items vertically */
-}
-
-.form-group {
-    display: flex; /* Flexbox for alignment */
-    flex-direction: column; /* Stack items vertically */
+    display: flex;
+    flex-direction: column;
 }
 
 /* Full-width inputs */
 .full-width {
-    grid-column: span 2; /* Spans both columns */
+    grid-column: span 2;
 }
 
 /* Label styling */
-.form-group label {
-    font-size: 1.2vw; /* Responsive font size */
-    color: white; /* White text color */
-    margin-bottom: 0.5vh; /* Space below the label */
-}
-.form-group-CC label {
-    font-size: 1.2vw; /* Responsive font size */
-    color: white; /* White text color */
-    margin-bottom: 0.5vh; /* Space below the label */
-}
+.form-group label,
+.form-group-CC label,
 .form-group-NIT label {
-    font-size: 1.2vw; /* Responsive font size */
-    color: white; /* White text color */
-    margin-bottom: 0.5vh; /* Space below the label */
+    font-size: 1.2vw;
+    color: white;
+    margin-bottom: 0.5vh;
 }
+
 /* Error message styling */
 .error-message {
     color: red;
     font-size: 12px;
 }
+
 /* Input styling */
-.form-group input {
-    width: 100%; /* Full width */
-    padding: 1vh; /* Padding inside inputs */
-    border: none; /* Removes border */
-    border-bottom: 2px solid white; /* White bottom border */
-    background: transparent; /* Transparent background */
-    color: white; /* White text color */
-    font-size: 1vw; /* Responsive font size */
-    outline: none; /* Removes focus outline */
-    font-family: 'Poppins', sans-serif; /* Consistent font family */
-    font-weight: normal; /* Normal text */
+.form-group input,
+.form-group-CC input,
+.form-group-NIT input,
+.form-group select,
+.select input {
+    width: 100%;
+    padding: 1vh;
+    border: none;
+    border-bottom: 2px solid white;
+    background: transparent;
+    color: white;
+    font-size: 1vw;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: normal;
 }
-.form-group select {
-    width: 100%; /* Full width */
-    padding: 1vh; /* Padding inside inputs */
-    border: none; /* Removes border */
-    border-bottom: 2px solid white; /* White bottom border */
-    background: transparent; /* Transparent background */
-    color:  rgba(255, 255, 255, 0.7); /* White text color */
-    font-size: 1vw; /* Responsive font size */
-    outline: none; /* Removes focus outline */
-    font-family: 'Poppins', sans-serif; /* Consistent font family */
-    font-weight: normal; /* Normal text */
-}
-.form-group-CC input {
-    width: 100%; /* Full width */
-    padding: 1vh; /* Padding inside inputs */
-    border: none; /* Removes border */
-    border-bottom: 2px solid white; /* White bottom border */
-    background: transparent; /* Transparent background */
-    color: white; /* White text color */
-    font-size: 1vw; /* Responsive font size */
-    outline: none; /* Removes focus outline */
-    font-family: 'Poppins', sans-serif; /* Consistent font family */
-    font-weight: normal; /* Normal text */
-}
-.form-group-NIT input {
-    display: none; /* Full width */
-    width: 100%; /* Full width */
-    padding: 1vh; /* Padding inside inputs */
-    border: none; /* Removes border */
-    border-bottom: 2px solid white; /* White bottom border */
-    background: transparent; /* Transparent background */
-    color: white; /* White text color */
-    font-size: 1vw; /* Responsive font size */
-    outline: none; /* Removes focus outline */
-    font-family: 'Poppins', sans-serif; /* Consistent font family */
-    font-weight: normal; /* Normal text */
-}
-/* Placeholder styling */
-.form-group input::placeholder {
-    color: rgba(255, 255, 255, 0.7); /* Light white color */
-    font-family: 'Poppins', sans-serif; /* Consistent font family */
-    font-weight: normal; /* Normal text */
-}
-.form-group-CC input::placeholder {
-    color: rgba(255, 255, 255, 0.7); /* Light white color */
-    font-family: 'Poppins', sans-serif; /* Consistent font family */
-    font-weight: normal; /* Normal text */
-}
+.form-group input::placeholder,
+.form-group-CC input::placeholder,
 .form-group-NIT input::placeholder {
-    color: rgba(255, 255, 255, 0.7); /* Light white color */
-    font-family: 'Poppins', sans-serif; /* Consistent font family */
-    font-weight: normal; /* Normal text */
+    color: rgba(255, 255, 255, 0.7);
+    font-family: 'Poppins', sans-serif;
+    font-weight: normal;
 }
-/* Bottom reflection on inputs */
-.form-group input:focus {
-    box-shadow: 0 4px 8px -4px rgba(0, 0, 0, 0.5); /* Shadow only at the bottom */
-    border-bottom: 2px solid rgb(255, 51, 95); /* Highlights the bottom border */
-    outline: none; /* Removes the default outline */
-    transition: box-shadow 0.3s ease, border-bottom 0.3s ease; /* Smooth animation for shadow and border */
-}
-.form-group-CC input:focus {
-    box-shadow: 0 4px 8px -4px rgba(0, 0, 0, 0.5); /* Shadow only at the bottom */
-    border-bottom: 2px solid rgb(255, 51, 95); /* Highlights the bottom border */
-    outline: none; /* Removes the default outline */
-    transition: box-shadow 0.3s ease, border-bottom 0.3s ease; /* Smooth animation for shadow and border */
-}
-/* Bottom reflection on inputs */
+.form-group input:focus,
+.form-group-CC input:focus,
 .form-group-NIT input:focus {
-    box-shadow: 0 4px 8px -4px rgba(0, 0, 0, 0.5); /* Shadow only at the bottom */
-    border-bottom: 2px solid rgb(255, 51, 95); /* Highlights the bottom border */
-    outline: none; /* Removes the default outline */
-    transition: box-shadow 0.3s ease, border-bottom 0.3s ease; /* Smooth animation for shadow and border */
+    box-shadow: 0 4px 8px -4px rgba(0, 0, 0, 0.5);
+    border-bottom: 2px solid rgb(255, 51, 95);
+    outline: none;
+    transition: box-shadow 0.3s ease, border-bottom 0.3s ease;
 }
 
-
-/* Customization of text and link */
+/* Customization for text and link */
 .full-width label {
-    font-family: 'Poppins', sans-serif; /* Uses the Poppins font */
-    font-weight: 400; /* Normal font weight */
-    line-height: 1.6; /* Line spacing */
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
 }
-
-/* Custom color for the link */
 .full-width a {
-    color: rgb(255, 51, 95); /* Custom color for the link */
-    text-decoration: none; /* Removes the underline */
-    font-weight: 600; /* Bold font weight */
+    color: rgb(255, 51, 95);
+    text-decoration: none;
+    font-weight: 600;
 }
-
-/* Hover effect on the link */
 .full-width a:hover {
-    text-decoration: underline; /* Underlines the link on hover */
-}
-
-/* Container to center the button */
-.btn-container {
-    grid-column: span 2; /* Occupies both columns */
-    display: flex; /* Uses flexbox for alignment */
-    justify-content: center; /* Centers the button horizontally */
+    text-decoration: underline;
 }
 
 /* Button styling */
+.btn-container {
+    grid-column: span 2;
+    display: flex;
+    justify-content: center;
+}
 .btn-enviar {
-    font-family: 'Poppins', sans-serif; /* Uses the Poppins font */
-    background-color: rgb(255, 51, 95); /* Button background color */
-    color: white; /* White text color */
-    border: none; /* Removes the border */
-    border-radius: 20px; /* Rounded corners */
-    padding: 15px 12px; /* Smaller button size */
-    font-size: 1.2rem; /* Reduced text size */
-    cursor: pointer; /* Changes the cursor to a pointer */
-    width: 50%; /* Button width set to 50% of the container */
-    transition: background-color 0.4s ease; /* Smooth background color transition */
+    font-family: 'Poppins', sans-serif;
+    background-color: rgb(255, 51, 95);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 15px 12px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    width: 50%;
+    transition: background-color 0.4s ease;
 }
-
-/* Hover effect on the button */
 .btn-enviar:hover {
-    background-color: rgb(210, 26, 90); /* Darker background color on hover */
+    background-color: rgb(210, 26, 90);
 }
 
-/* Style for the slider switch */
+/* Slider switch styling */
 .switch {
-    position: relative; /* Allows absolute positioning of child elements */
-    display: inline-block; /* Ensures the switch is treated as an inline block */
-    width: 50px; /* Width of the switch slider */
-    height: 25px; /* Height of the switch slider */
-    margin-left: 50px; /* Space between the switch and the left side */
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 25px;
+    margin-left: 50px;
 }
-
-/* Hide the checkbox input */
 .switch input {
-    opacity: 0; /* Makes the checkbox invisible */
-    width: 0; /* Removes width to prevent interaction */
-    height: 0; /* Removes height to prevent interaction */
+    opacity: 0;
+    width: 0;
+    height: 0;
 }
-
-/* Style for the slider (visible part of the switch) */
 .slider {
-    position: absolute; /* Positioned relative to the .switch container */
-    cursor: pointer; /* Changes the cursor to a pointer when hovering */
-    top: 0; /* Aligns the slider to the top of the container */
-    left: 0; /* Aligns the slider to the left of the container */
-    right: 0; /* Ensures the slider stretches to the right */
-    bottom: 0; /* Ensures the slider stretches to the bottom */
-    background-color: #444; /* Default slider background color (dark mode) */
-    border-radius: 25px; /* Rounds the edges to create a pill-shaped slider */
-    transition: 0.4s; /* Smooth transition effect for background and position changes */
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #444;
+    border-radius: 25px;
+    transition: 0.4s;
 }
-
-/* Sliding indicator (the circle with an icon) */
 .slider::before {
-    content: "🌙"; /* Displays a moon icon for dark mode */
-    display: flex; /* Enables flexbox for centering the icon */
-    align-items: center; /* Vertically centers the icon within the circle */
-    justify-content: center; /* Horizontally centers the icon within the circle */
-    position: absolute; /* Positions the circle relative to the .slider container */
-    height: 18px; /* Circle height (sliding indicator size) */
-    width: 18px; /* Circle width (sliding indicator size) */
-    left: 4px; /* Initial position of the circle (dark mode) */
-    bottom: 3.5px; /* Distance from the bottom edge of the slider */
-    background-color: white; /* Background color of the circle (white) */
-    border-radius: 50%; /* Makes the circle perfectly round */
-    transition: 0.4s; /* Smooth animation when switching themes */
-    font-size: 14px; /* Size of the moon icon */
+    content: "🌙";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    height: 18px;
+    width: 18px;
+    left: 4px;
+    bottom: 3.5px;
+    background-color: white;
+    border-radius: 50%;
+    transition: 0.4s;
+    font-size: 14px;
 }
-
-/* When the checkbox is checked (light mode) */
 input:checked + .slider {
-    background-color: #ccc; /* Changes the slider background to light gray */
+    background-color: #ccc;
 }
-
-/* Moves the circle to the right (light mode) */
 input:checked + .slider::before {
-    transform: translateX(24px); /* Shifts the circle 24px to the right */
-    content: "☀️"; /* Displays a sun icon for light mode */
-    color: rgb(173, 216, 230); /* Light blue color for the sun icon */
+    transform: translateX(24px);
+    content: "☀️";
+    color: rgb(173, 216, 230);
 }
 
-/* Light mode: changes the background to white and the text to black */
+/* Light mode adjustments */
 .light-mode {
-    background-color: white; /* White background for light mode */
-    color: black; /* Black text color for better contrast */
+    background-color: white;
+    color: black;
 }
-
-/* Sets the header background color to white when light mode is active */
 .light-mode header {
     background-color: white;
 }
-
-/* Adjusts the navigation link color in light mode for better contrast and readability */
 .light-mode nav ul li a {
-    color: black; /* Changes the text color of navigation links to black */
+    color: black;
 }
-
-/* Modifies the underline color of navigation links in light mode */
 .light-mode nav ul li a::after {
-    background-color: rgb(0, 40, 159); /* Applies a dark blue underline for visual distinction */
+    background-color: rgb(0, 40, 159);
 }
-
-/* Changes the label color to black in light mode */
 .light-mode .form-group label {
-    color: black; /* Ensures labels are clearly visible against a light background */
+    color: black;
 }
-
-/* Sets the contact form title color to dark blue in light mode */
 .light-mode #contact-title {
-    color: rgb(0, 40, 159); /* Provides a distinctive dark blue color for emphasis */
+    color: rgb(0, 40, 159);
 }
-
-/* Styles the input fields in light mode */
 .light-mode .form-group input {
-    border-bottom: 2px solid rgb(0, 40, 159); /* Changes the bottom border to dark blue for a clear input field outline */
+    border-bottom: 2px solid rgb(0, 40, 159);
 }
-
-/* Applies a focus effect on input fields in light mode */
 .light-mode .form-group input:focus {
-    border-bottom: 2px solid rgb(0, 40, 159); /* Keeps the bottom border dark blue when the input is focused */
-    box-shadow: 0 4px 8px -4px rgba(0, 40, 159, 0.7); /* Adds a subtle blue shadow when the input is active */
+    border-bottom: 2px solid rgb(0, 40, 159);
+    box-shadow: 0 4px 8px -4px rgba(0, 40, 159, 0.7);
 }
-
-/* Focus effect for the comment box in light mode */
 .light-mode .comment-box textarea:focus {
-    border-color: rgb(0, 40, 159); /* Keeps the border dark blue when the textarea is focused */
-    box-shadow: 0 4px 12px -4px rgba(0, 40, 159, 0.7); /* Adds a soft blue shadow to highlight the focused textarea */
+    border-color: rgb(0, 40, 159);
+    box-shadow: 0 4px 12px -4px rgba(0, 40, 159, 0.7);
 }
-
-/* Styles the comment box in light mode */
 .light-mode .comment-box textarea {
-    color: black; /* Ensures the input text is black for better readability on a light background */
-    border: 2px solid rgb(0, 40, 159); /* Applies a solid dark blue border around the textarea */
+    color: black;
+    border: 2px solid rgb(0, 40, 159);
 }
-
-/* Light mode - Input field adjustments */
 .light-mode .form-group input {
-    color: black; /* Ensures that user input appears in black for clarity */
+    color: black;
 }
-
-/* Light mode - Placeholder styling for input fields */
 .light-mode .form-group input::placeholder {
-    color: rgb(150, 146, 146); /* Sets a soft gray color for the placeholder text to distinguish it from user input */
+    color: rgb(150, 146, 146);
 }
-
-/* Light mode - Link styling for full-width containers */
 .light-mode .full-width a {
-    color: rgb(0, 40, 159); /* Changes the link color to dark blue for better visibility on a light background */
+    color: rgb(0, 40, 159);
 }
-
-/* Light mode - Submit button styling */
 .light-mode .btn-enviar {
-    background-color: rgb(0, 40, 159); /* Sets a dark blue background for the submit button to create a clear call-to-action */
+    background-color: rgb(0, 40, 159);
 }
-
-/* Light mode - Submit button hover effect */
 .light-mode .btn-enviar:hover {
-    background-color: rgb(0, 30, 120); /* Darkens the button background on hover to provide visual feedback */
+    background-color: rgb(0, 30, 120);
 }
 
 /* Footer Section */
 footer {
-    display: flex; /* Arranges the columns in a row */
-    flex-direction: column; /* Stacks elements vertically */
-    background-color: rgb(44, 44, 44); /* Background color */
-    color: white; /* White text color */
-    padding: 6vh 80px; /* Adds more space around the edges */
-    margin-top: auto; /* Pushes the footer to the bottom */
-    font-size: 0.9rem; /* Reduces font size */
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(44, 44, 44);
+    color: white;
+    padding: 6vh 80px;
+    margin-top: auto;
+    font-size: 0.9rem;
 }
-
-/* Main container for the footer content */
 .footer-content {
-    display: flex; /* Aligns columns in a row */
-    justify-content: space-between; /* Distributes columns with space between them */
-    margin-bottom: 20px; /* Space before the divider line */
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
 }
-
-/* Footer columns */
 .footer-column {
-    flex: 1; /* Ensures equal width for all columns */
-    padding: 0 30px; /* Adds space between columns */
+    flex: 1;
+    padding: 0 30px;
 }
-
-/* Paragraphs within the footer */
 .footer-column p {
-    margin: 8px 0; /* Adds vertical space between paragraphs */
+    margin: 8px 0;
 }
-
-/* Links within the footer */
 .footer-column a {
-    color: white; /* Sets link color to white */
-    text-decoration: none; /* Removes underline from links */
-    font-size: 0.85rem; /* Reduces font size for links */
+    color: white;
+    text-decoration: none;
+    font-size: 0.85rem;
 }
-
 .footer-column a:hover {
-    text-decoration: underline; /* Underlines links on hover */
+    text-decoration: underline;
 }
-
-/* Icons within the footer */
 .footer-column img {
-    width: 25px; /* Sets icon size */
-    margin-right: 10px; /* Adds space between icons */
-    vertical-align: middle; /* Vertically aligns icons with text */
+    width: 25px;
+    margin-right: 10px;
+    vertical-align: middle;
 }
-
-/* Horizontal line within the footer */
 .footer-divider {
-    border-top: 1px solid white; /* White top border to create a divider */
-    margin: 20px 0; /* Adds space above and below the divider */
+    border-top: 1px solid white;
+    margin: 20px 0;
 }
-
-/* Copyright message */
 .footer-copyright {
-    text-align: center; /* Centers the copyright text */
-    font-size: 0.8rem; /* Reduces the font size */
+    text-align: center;
+    font-size: 0.8rem;
 }
 
-/* Responsive styles for small screens
-   - Stacks navigation vertically.
-   - Adjusts image and text sizes for better fit. */
-   @media (max-width: 768px) {
+/* Responsive styles */
+@media (max-width: 768px) {
     nav ul {
         flex-direction: column;
         align-items: center;
     }
-
     nav ul li {
         margin: 1vw 0;
     }
-
     nav ul li a {
         font-size: 4vw;
     }
-
     .polygon-1 {
         height: 150vh;
     }
-
     .right-image {
         width: 40vw;
         top: 10vh;
     }
 }
-
-/* Responsive styles for large screens
-   - Adjusts font and image sizes for better readability. */
 @media (min-width: 1200px) {
     nav ul li a {
         font-size: 1.2vw;
     }
-
     .polygon-1 {
         height: 180vh;
     }
+}
+
+/* ============================= */
+/* Custom dropdown styles for Hora */
+/* ============================= */
+.custom-dropdown {
+    position: relative;
+    width: 100%;
+    background-color: #333; /* Fondo personalizado */
+    border-bottom: 2px solid white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.custom-dropdown .dropdown-selected {
+    padding: 1vh;
+    color: white;
+    font-size: 1vw;
+}
+.custom-dropdown .dropdown-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    max-height: 150px;
+    overflow-y: auto;
+    background-color: #333; /* Fondo para la lista */
+    border: 1px solid #555;
+    border-radius: 4px;
+    z-index: 1000;
+    display: none;
+}
+.custom-dropdown .dropdown-option {
+    padding: 1vh;
+    font-size: 1vw;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+.custom-dropdown .dropdown-option:hover {
+    background-color: #444;
 }
