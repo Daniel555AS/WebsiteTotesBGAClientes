@@ -173,7 +173,7 @@ input:checked + .slider::before {
 .stellar-gt {
     position: absolute; /* Allows the element to be positioned freely relative to its nearest positioned ancestor or the viewport */
     top: 30vh; /* Positions the element 30% down from the top of the viewport (viewport height) */
-    left: 35vw; /* Positions the element 35% from the left of the viewport (viewport width) */
+    left: 40vw; /* Positions the element 35% from the left of the viewport (viewport width) */
     font-family: 'Poppins', sans-serif; /* Uses the "Poppins" font, falling back to a generic sans-serif if unavailable */
     font-weight: bold; /* Sets the font weight to bold (equivalent to 700 in numerical values) */
     color: gray; /* Sets the text color to gray */
@@ -195,12 +195,13 @@ input:checked + .slider::before {
     height: auto; /* Automatically adjusts the height to maintain the element’s aspect ratio */
     z-index: 2; /* Ensures the element appears above content with a lower z-index value */
     overflow: hidden; /* Hides any content that overflows the element’s boundaries */
+    margin-bottom: 50vh;
 }
 
 /* Styles for the "texto-aceleracion" class, likely used for a main acceleration-related text */
 .texto-aceleracion {
     position: absolute; /* Allows free positioning relative to the nearest positioned ancestor (or the viewport if none exists) */
-    top: 90vh; /* Positions the element 90% down from the top of the viewport */
+    top: 105vh; /* Positions the element 90% down from the top of the viewport */
     left: 10vw; /* Positions the element 10% from the left side of the viewport */
     font-family: 'Poppins', sans-serif; /* Applies the "Poppins" font, with "sans-serif" as a fallback */
     font-weight: 600; /* Applies a semi-bold weight (600) for the text */
@@ -222,7 +223,7 @@ input:checked + .slider::before {
 /* Styles for the "info-aceleracion" class, likely used for additional acceleration information */
 .info-aceleracion {
     position: absolute; /* Allows free positioning relative to the nearest positioned ancestor */
-    top: 98vh; /* Positions the element 98% down from the top of the viewport */
+    top: 113vh; /* Positions the element 98% down from the top of the viewport */
     left: 10vw; /* Positions the element 10% from the left side of the viewport */
     font-family: 'Poppins', sans-serif; /* Applies the "Poppins" font with "sans-serif" as a fallback */
     font-weight: 600; /* Sets the text to a semi-bold style (600 weight) */
@@ -239,7 +240,7 @@ input:checked + .slider::before {
 /* Styles for the "texto-velocidad" class, likely used for displaying speed-related information */
 .texto-velocidad {
     position: absolute; /* Allows the element to be positioned freely relative to its nearest positioned ancestor */
-    top: 105vh; /* Positions the element 105% down from the top of the viewport (slightly beyond the visible area) */
+    top: 121vh; /* Positions the element 105% down from the top of the viewport (slightly beyond the visible area) */
     left: 10vw; /* Positions the element 10% from the left side of the viewport */
     font-family: 'Poppins', sans-serif; /* Uses the "Poppins" font, with "sans-serif" as a fallback */
     font-weight: 600; /* Applies a semi-bold weight (600) to the text */
@@ -261,7 +262,7 @@ input:checked + .slider::before {
 /* Styles for the "info-velocidad" class, likely used for additional descriptive speed information */
 .info-velocidad {
     position: absolute; /* Allows the element to be positioned freely relative to its nearest positioned ancestor */
-    top: 113vh; /* Positions the element 113% down from the top of the viewport (beyond the visible area) */
+    top: 129vh; /* Positions the element 113% down from the top of the viewport (beyond the visible area) */
     left: 10vw; /* Positions the element 10% from the left side of the viewport */
     font-family: 'Poppins', sans-serif; /* Uses the "Poppins" font, with "sans-serif" as a fallback */
     font-weight: 600; /* Applies a semi-bold weight (600) to the text */
@@ -278,7 +279,7 @@ input:checked + .slider::before {
 /* Styles for the "texto-condicion" class, likely used to display condition-related messages */
 .texto-condicion {
     position: absolute; /* Allows the element to be positioned freely relative to its nearest positioned ancestor */
-    top: 120vh; /* Positions the element 120% down from the top of the viewport (well beyond the visible area) */
+    top: 137vh; /* Positions the element 120% down from the top of the viewport (well beyond the visible area) */
     left: 10vw; /* Positions the element 10% from the left side of the viewport */
     font-family: 'Poppins', sans-serif; /* Uses the "Poppins" font, with "sans-serif" as a fallback */
     font-weight: 600; /* Applies a semi-bold weight (600) to the text */
@@ -295,7 +296,7 @@ input:checked + .slider::before {
 /* Styles for the "info-condicion" class, likely used to display additional condition-related information */
 .info-condicion {
     position: absolute; /* Allows the element to be positioned freely relative to its nearest positioned ancestor */
-    top: 128vh; /* Positions the element 128% down from the top of the viewport (beyond the visible area) */
+    top: 145vh; /* Positions the element 128% down from the top of the viewport (beyond the visible area) */
     left: 10vw; /* Positions the element 10% from the left side of the viewport */
     font-family: 'Poppins', sans-serif; /* Uses the "Poppins" font, with "sans-serif" as a fallback */
     font-weight: 600; /* Applies a semi-bold weight (600) to the text */
@@ -312,7 +313,7 @@ input:checked + .slider::before {
 /* Styles for the "texto-precio" class, likely used to display price information */
 .texto-precio {
     position: absolute; /* Allows the element to be positioned freely relative to its nearest positioned ancestor */
-    top: 136vh; /* Positions the element 136% down from the top of the viewport (beyond the visible area) */
+    top: 153vh; /* Positions the element 136% down from the top of the viewport (beyond the visible area) */
     left: 10vw; /* Positions the element 10% from the left side of the viewport */
     font-family: 'Poppins', sans-serif; /* Uses the "Poppins" font, with "sans-serif" as a fallback */
     font-weight: 600; /* Applies a semi-bold weight (600) to the text */
@@ -329,7 +330,7 @@ input:checked + .slider::before {
 /* Styles for the "info-precio" class, likely used to display additional price-related information */
 .info-precio {
     position: absolute; /* Allows the element to be positioned freely relative to its nearest positioned ancestor */
-    top: 144vh; /* Positions the element 144% down from the top of the viewport (beyond the visible area) */
+    top: 161vh; /* Positions the element 144% down from the top of the viewport (beyond the visible area) */
     left: 10vw; /* Positions the element 10% from the left side of the viewport */
     font-family: 'Poppins', sans-serif; /* Uses the "Poppins" font, with "sans-serif" as a fallback */
     font-weight: 600; /* Applies a semi-bold weight (600) to the text */
@@ -346,7 +347,7 @@ input:checked + .slider::before {
 /* Styles for the "year" class, likely used to display a year value or a large numerical indicator */
 .year {
     position: absolute; /* Allows the element to be positioned freely relative to its nearest positioned ancestor */
-    top: 152vh; /* Positions the element 152% down from the top of the viewport (beyond the visible area) */
+    top: 169vh; /* Positions the element 152% down from the top of the viewport (beyond the visible area) */
     left: 10vw; /* Positions the element 10% from the left side of the viewport */
     font-family: 'Poppins', sans-serif; /* Uses the "Poppins" font, with "sans-serif" as a fallback */
     font-weight: 600; /* Applies a semi-bold weight (600) to the text */
@@ -363,7 +364,7 @@ input:checked + .slider::before {
 /* Styles for the "text-premium-a1" class, possibly used to display a premium-level description */
 .text-premium-a1 {
     position: absolute; /* Allows the element to be positioned freely relative to its nearest positioned ancestor */
-    top: 170vh; /* Positions the element 170% down from the top of the viewport (beyond the visible area) */
+    top: 185vh; /* Positions the element 170% down from the top of the viewport (beyond the visible area) */
     left: 10vw; /* Positions the element 10% from the left side of the viewport */
     font-family: 'Poppins', sans-serif; /* Uses the "Poppins" font, with "sans-serif" as a fallback */
     font-weight: 200; /* Applies a thin weight (200) to the text for a lighter appearance */
@@ -378,76 +379,57 @@ input:checked + .slider::before {
 }
 
 .carousel-slide {
-    min-width: 100%; /* Asegura que cada slide ocupe todo el ancho del carrusel */
-    height: 30vh;
-    background-size: cover;
-    background-position: center;
-    flex-shrink: 0; /* Evita que los slides se reduzcan de tamaño */
+    min-width: 100%; /* Ensures each slide takes the full carousel width */
+    height: 30vh; /* Sets a consistent height for the slides */
+    background-size: cover; /* Ensures the background fully covers the slide */
+    background-position: center; /* Centers the background image */
+    flex-shrink: 0; /* Prevents slides from shrinking */
 }
 
 .contcarousel {
     position: relative;
-    top: 50vh; /* Mantiene la posición según lo solicitado */
-    left: 20vw;
-    width: 40vw;
-    height: 30vh; /* Asegura que la altura sea consistente */
-    overflow: hidden;
-    display: flex;
-    align-items: center;
+    top: 25vh; /* Positions the carousel at 25% of the viewport height */
+    left: 20vw; /* Moves the carousel 20% from the left */
+    width: 40vw; /* Defines the carousel width */
+    height: 30vh; /* Ensures a fixed height */
+    overflow: hidden; /* Hides content outside the container */
+    display: flex; /* Enables flexbox layout */
+    align-items: center; /* Centers content vertically */
+    background-color: rgba(113, 113, 113, 0.356); /* Adds a semi-transparent background */
+    border-radius: 2vw; /* Rounds the container corners */
+    padding: 2vw; /* Adds padding inside the container */
 }
 
 .carousel-track {
-    display: flex;
-    transition: transform 0.5s ease;
-    width: 100%; /* Ajusta el ancho del track al tamaño del contenedor */
-}
-.next-button {
-    position: absolute;
-  
-    top: 50%;
-  
-    transform: translateY(-50%);
-  
-    background: rgba(0, 0, 0, 0.5);
-  
-    color: white;
-  
-    padding: 1vh;
-  
-    border: none;
-  
-    cursor: pointer; 
+    display: flex; /* Aligns slides in a row */
+    transition: transform 0.5s ease; /* Smooth slide transition */
+    width: 100%; /* Matches track width with the container */
 }
 
-.prev-button{
+.next-button, .prev-button {
     position: absolute;
-  
-    top: 50%;
-  
-    transform: translateY(-50%);
-  
-    background: rgba(0, 0, 0, 0.5);
-  
-    color: white;
-  
-    padding: 1vh;
-  
-    border: none;
-  
-    cursor: pointer;
-  
-  }
+    top: 50%; /* Centers the buttons vertically */
+    transform: translateY(-50%); /* Ensures perfect vertical alignment */
+    background: rgba(0, 0, 0, 0.5); /* Adds a semi-transparent background */
+    color: white; /* Sets the text color */
+    padding: 1vh; /* Defines button padding */
+    border: none; /* Removes default button border */
+    border-radius: 0.2vw; /* Slightly rounds the corners */
+    cursor: pointer; /* Changes the cursor to a pointer */
+    font-size: 2vw; /* Adjusts text size relative to the viewport */
+}
+
+.next-button:hover, .prev-button:hover {
+    background-color: rgba(41, 41, 41, 0.5); /* Darkens the background on hover */
+    transition: 0.5s; /* Smooth transition effect */
+}
 
 .prev-button {
-
-    left: 1vh;
-  
+    left: 1vh; /* Positions the previous button to the left */
 }
-  
+
 .next-button {
-  
-    right: 1vh;
-  
+    right: 1vh; /* Positions the next button to the right */
 }
 
 /* Main content styling */
@@ -488,7 +470,7 @@ footer {
     background-color: rgb(44, 44, 44); /* Background color */
     color: white; /* White text color */
     padding: 6vh 80px; /* Adds more space around the edges */
-    margin-top: 80vh; /* Pushes the footer to the bottom */
+    margin-top: 50vh; /* Pushes the footer to the bottom */
     font-size: 0.9rem; /* Reduces font size */
 }
 

@@ -156,8 +156,8 @@ input:checked + .slider::before {
 .matriz-car-1 {
     position: relative; /* Positions the element relative to its normal position */
     top: -20vh; /* Moves the element 20% of the viewport height up (negative value moves it upward) */
-    right: -28vw; /* Moves the element 28% of the viewport width to the left (negative value) */
-    width: 70vw; /* Sets the width to 70% of the viewport width */
+    right: -32vw; /* Moves the element 28% of the viewport width to the left (negative value) */
+    width: 90vw; /* Sets the width to 70% of the viewport width */
     height: auto; /* Automatically adjusts the height to maintain the aspect ratio */
     z-index: 2; /* Ensures the image appears above other elements with a lower z-index */
     overflow: hidden; /* Hides any content that exceeds the element's box */
@@ -281,7 +281,7 @@ input:checked + .slider::before {
 /* Right image styling */
 .matriz-car-2 {
     position: relative; /* Positions the element relative to its normal flow */
-    top: -20vh; /* Moves the element 20% of the viewport height upwards */
+    top: -50vh; /* Moves the element 20% of the viewport height upwards */
     left: -30vw; /* Moves the element 30% of the viewport width to the left */
     width: 70vw; /* Sets the width to 70% of the viewport width */
     height: auto; /* Maintains aspect ratio by adjusting height automatically */
@@ -418,7 +418,7 @@ footer {
     background-color: rgb(44, 44, 44); /* Background color */
     color: white; /* White text color */
     padding: 6vh 80px; /* Adds more space around the edges */
-    margin-top: -10vh; /* Pushes the footer to the bottom */
+    margin-top: -40vh; /* Pushes the footer to the bottom */
     font-size: 0.9rem; /* Reduces font size */
 }
 
