@@ -182,7 +182,7 @@ input:checked + .slider::before {
 }
 
 /* Style adjustments for the "URBANO SPORT" text in light mode */
-.light-mode .urbano-sport {
+.light-mode .stellar-gt {
     color: rgb(0, 40, 159); /* Changes the text color to a dark blue (RGB) when the light mode class is applied */
 }
 
@@ -440,6 +440,43 @@ main {
     align-items: center; /* Centers content horizontally */
     justify-content: flex-start; /* Aligns content at the top */
     padding-top: 15vh; /* Space below the fixed header */
+}
+
+/* Background ellipse styling */
+.ellipse-background-1 {
+    position: absolute; /* Positions the element relative to the nearest positioned ancestor */
+    top: 20vh; /* Moves the ellipse 20% of the viewport height down */
+    left: 3vh; /* Moves the ellipse 3% of the viewport height to the right */
+    width: 30vw; /* Defines the ellipse width as 30% of the viewport width */
+    height: 60vh; /* Sets the ellipse height to 60% of the viewport height */
+    border: 2vw solid rgba(128, 128, 128, 0.403); /* Creates a thick semi-transparent gray border */
+    border-radius: 50%; /* Rounds the corners to create a circular or elliptical shape */
+    transform: translateX(-50%); /* Moves the ellipse left by 50% of its width, centering it horizontally */
+    z-index: -1; /* Places the ellipse behind other content */
+}
+
+/* Light mode style for the ellipse */
+/* Changes the ellipse border color in light mode */
+.light-mode .ellipse-background-1 {
+    border: 2vw solid rgba(0, 40, 159, 0.312); /* Applies a semi-transparent blue border */
+}
+
+/* Background ellipse styling (secondary) */
+.ellipse-background-2 {
+    position: absolute; /* Allows free positioning relative to the nearest positioned ancestor */
+    top: 100vh; /* Moves the ellipse 100% of the viewport height down (completely out of the initial view) */
+    right: -70vh; /* Moves the ellipse 60% of the viewport height to the left */
+    width: 30vw; /* Sets the ellipse width to 30% of the viewport width */
+    height: 60vh; /* Sets the ellipse height to 60% of the viewport height */
+    border: 2vw solid rgba(128, 128, 128, 0.403); /* Creates a thick semi-transparent gray border */
+    border-radius: 50%; /* Ensures a circular or elliptical shape */
+    transform: translateX(-50%); /* Shifts the ellipse 50% of its own width to the left, centering it horizontally */
+    z-index: -1; /* Positions the ellipse behind other content */
+}
+
+/* Light mode style for the secondary ellipse */
+.light-mode .ellipse-background-2 {
+    border: 2vw solid rgba(0, 40, 159, 0.312); /* Changes the ellipse border to a semi-transparent blue */
 }
 
 /* Header shadow on scroll */
