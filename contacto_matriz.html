@@ -22,7 +22,7 @@
     <nav>
       <ul>
         <li><a href="index.html">Inicio</a></li>
-        <li><a href="#matrix">Matriz</a></li>
+        <li><a href="matriz.html">Matriz</a></li>
         <li><a href="#vehicles">Vehículos</a></li>
         <li><a href="#accesorios">Accesorios</a></li>
         <li><a href="#spare-parts">Repuestos</a></li>
@@ -40,29 +40,30 @@
 
   <!-- Main Content -->
   <main>
-    <h1 id="contact-title">QUEREMOS ESCUCHARTE</h1>
-    <form id="contact-form" action="#" method="POST" onsubmit="return validateForm()">
+    <h1 id="contact-title">AGENDA TU CITA</h1>
+    <form id="contact-form" action="#" method="POST">
       <!-- Name Input -->
       <div class="form-group">
         <label for="nombre">Nombre*</label>
-        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+        <input type="text" id="nombre" name="nombre" placeholder="Tu Nombre" required>
         <small id="error-nombre" class="error-message"></small>
       </div>
 
       <!-- Last Name Input -->
       <div class="form-group">
         <label for="apellido">Apellido*</label>
-        <input type="text" id="apellido" name="apellido" placeholder="Tu apellido" required>
+        <input type="text" id="apellido" name="apellido" placeholder="Tu Apellido" required>
         <small id="error-apellido" class="error-message"></small>
       </div>
 
       <!-- Phone Number Input -->
       <div class="form-group">
         <label for="telefono">Teléfono*</label>
-        <input type="text" id="telefono" name="telefono" placeholder="Tu teléfono" required>
+        <input type="text" id="telefono" name="telefono" placeholder="Tu Teléfono" required>
         <small id="error-telefono" class="error-message"></small>
       </div>
 
+      <!-- Customer Type -->
       <div class="form-group">
         <label for="customer-type-label">Tipo de Cliente*</label>
         <select id="customer-type" required>
@@ -72,7 +73,7 @@
         <small id="error-identifier" class="error-message"></small>
       </div>
 
-      <!-- Tipo de identificación -->
+      <!-- Identifier Type -->
       <div class="form-group">
         <label for="identifier-type-label">Tipo de identificación*</label>
         <select id="identifier-type" required>
@@ -80,6 +81,7 @@
         <small id="error-identifier" class="error-message"></small>
       </div>    
 
+      <!-- Identification number -->
       <div class="form-group">
         <label for="numero-identificacion">Número de Identificación*</label>
         <input type="text" id="identificacion-num" name="identificacion-num" placeholder="Tu Número de Indentificación" required>
@@ -89,29 +91,32 @@
       <!-- Email Input -->
       <div class="form-group">
         <label for="correo">Correo Electrónico*</label>
-        <input type="email" id="correo" name="correo" placeholder="Tu correo electrónico" required>
+        <input type="email" id="correo" name="correo" placeholder="Tu Correo Electrónico" required>
         <small id="error-correo" class="error-message"></small>
       </div>
 
+      <!-- Residential Address Input-->
       <div class="form-group">
-        <label for="address">Dirección*</label>
-        <input type="text" id="address" name="address" placeholder="Tu Dirección" required>
+        <label for="address">Dirección de Residencia*</label>
+        <input type="text" id="address" name="address" placeholder="Tu Dirección de Residencia" required>
         <small id="error-address" class="error-message"></small>
       </div>
-
+      
+      <!-- Date -->
       <div class="form-group">
-          <label for="fecha">Selecciona una fecha*</label>
+          <label for="fecha">Fecha*</label>
           <input type="date" id="fecha" required>
           <small id="error-fecha" class="error-message"></small>
       </div>
 
+      <!-- Schedule -->
       <div class="form-group">
-          <label for="hora">Selecciona una hora*</label>
+          <label for="hora">Horario*</label>
           <select id="hora" required></select>
           <small id="error-hora" class="error-message"></small>
       </div>
 
-      <!-- Campo oculto para la fecha y hora combinadas -->
+      <!-- Hidden field for combined date and time -->
       <input type="hidden" id="fecha-hora-final" name="fecha-hora">
 
       
