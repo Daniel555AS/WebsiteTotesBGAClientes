@@ -63,27 +63,27 @@
         <small id="error-telefono" class="error-message"></small>
       </div>
 
+      <div class="form-group">
+        <label for="customer-type-label">Tipo de Cliente*</label>
+        <select id="customer-type" required>
+          <option value="persona">Natural</option>
+          <option value="empresa">Empresa</option>
+        </select>
+        <small id="error-identifier" class="error-message"></small>
+      </div>
+
       <!-- Tipo de identificación -->
       <div class="form-group">
-        <label for="identifier-type">Tipo de identificacion*</label>
+        <label for="identifier-type-label">Tipo de identificación*</label>
         <select id="identifier-type" required>
-          <option value="">Seleccione una opción</option>
         </select>
-        <small id="error-telefono" class="error-message"></small>
-      </div>
+        <small id="error-identifier" class="error-message"></small>
+      </div>    
 
-      <!-- Cédula Input (se muestra cuando NO es empresa) -->
-      <div class="form-group" id="group-cedula">
-        <label for="cedula">Cédula*</label>
-        <input type="text" id="cedula" name="cedula" placeholder="Tu cédula" required>
-        <small id="error-cedula" class="error-message"></small>
-      </div>
-
-      <!-- NIT Input (se muestra cuando es empresa) -->
-      <div class="form-group" id="group-nit">
-        <label for="NIT">NIT*</label>
-        <input type="text" id="NIT" name="NIT" placeholder="Tu NIT" required>
-        <small id="error-NIT" class="error-message"></small>
+      <div class="form-group">
+        <label for="numero-identificacion">Número de Identificación*</label>
+        <input type="text" id="identificacion-num" name="identificacion-num" placeholder="Tu Número de Indentificación" required>
+        <small id="error-identificacion-num" class="error-message"></small>
       </div>
 
       <!-- Email Input -->
@@ -93,31 +93,28 @@
         <small id="error-correo" class="error-message"></small>
       </div>
 
-      <!-- Campo de Fecha: Dropdown personalizado para fecha -->
       <div class="form-group">
-        <label for="fecha">Fecha*</label>
-        <div class="custom-dropdown" id="custom-dropdown-date">
-          <div class="dropdown-selected">Selecciona la fecha</div>
-          <div class="dropdown-list">
-            <!-- Opciones generadas mediante JavaScript -->
-          </div>
-          <!-- Campo oculto para enviar el valor seleccionado -->
-          <input type="hidden" name="fecha" id="fecha">
-        </div>
+        <label for="address">Dirección*</label>
+        <input type="text" id="address" name="address" placeholder="Tu Dirección" required>
+        <small id="error-address" class="error-message"></small>
       </div>
 
-      <!-- Campo de Hora: Dropdown personalizado para hora -->
       <div class="form-group">
-        <label for="hora">Hora*</label>
-        <div class="custom-dropdown" id="custom-dropdown-time">
-          <div class="dropdown-selected">Selecciona la hora</div>
-          <div class="dropdown-list">
-            <!-- Opciones generadas mediante JavaScript -->
-          </div>
-          <input type="hidden" name="hora" id="hora-time">
-        </div>
+          <label for="fecha">Selecciona una fecha*</label>
+          <input type="date" id="fecha" required>
+          <small id="error-fecha" class="error-message"></small>
       </div>
 
+      <div class="form-group">
+          <label for="hora">Selecciona una hora*</label>
+          <select id="hora" required></select>
+          <small id="error-hora" class="error-message"></small>
+      </div>
+
+      <!-- Campo oculto para la fecha y hora combinadas -->
+      <input type="hidden" id="fecha-hora-final" name="fecha-hora">
+
+      
       <!-- Consent Checkbox with Privacy Policy -->
       <div class="full-width">
         <label>
