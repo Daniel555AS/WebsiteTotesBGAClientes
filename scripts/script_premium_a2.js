@@ -92,3 +92,11 @@ modeToggle.addEventListener('change', () => {
         localStorage.setItem('theme', 'dark');
     }
 });
+
+const scheduleButton = document.querySelector('.btn-agendar');
+
+if (scheduleButton) {
+    scheduleButton.addEventListener('click', () => {
+        window.location.href = 'contacto_matriz.html'; 
+    });
+}

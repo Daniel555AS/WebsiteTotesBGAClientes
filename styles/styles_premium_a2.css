@@ -441,6 +441,37 @@ main {
     padding-top: 15vh; /* Space below the fixed header */
 }
 
+/* Button styling for 'btn-agendar' */
+.btn-agendar {
+    font-family: 'Poppins', sans-serif;  /* Sets the font family to Poppins */
+    background-color: rgb(255, 255, 255);  /* Sets the background color to white */
+    color: rgb(0, 0, 0);  /* Sets the text color to black */
+    border: none;  /* Removes the button border */
+    border-radius: 20px;  /* Rounds the corners of the button */
+    padding: 15px 30px;  /* Adds padding: 15px vertically, 30px horizontally */
+    font-size: 0.9rem;  /* Sets the font size to 0.9rem */
+    cursor: pointer;  /* Changes the cursor to a pointer on hover */
+    margin-top: 20px;  /* Adds a top margin of 20px */
+    font-weight: normal;  /* Sets the font weight to normal */
+    transition: background-color 0.4s ease;  /* Smooth transition for background color change */
+}
+
+/* Adjusts 'btn-agendar' appearance in light mode */
+.light-mode .btn-agendar {
+    background-color: rgb(0, 40, 159);  /* Changes background to a dark blue */
+    color: white;  /* Sets text color to white */
+}
+
+/* Changes 'btn-agendar' background on hover */
+.btn-agendar:hover {
+    background-color: rgb(107, 107, 107);  /* Sets background to gray on hover */
+}
+
+/* Changes 'btn-agendar' hover background in light mode */
+.light-mode .btn-agendar:hover {
+    background-color: rgb(0, 30, 120);  /* Sets a darker blue on hover */
+}
+
 /* Background ellipse styling */
 .ellipse-background-1 {
     position: absolute; /* Positions the element relative to the nearest positioned ancestor */
