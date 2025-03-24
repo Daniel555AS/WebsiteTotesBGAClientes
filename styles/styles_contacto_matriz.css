@@ -1,0 +1,501 @@
+/* General body styling */
+body {
+    font-family: 'Poppins', sans-serif; /* Sets the font style */
+    margin: 0; /* Removes default margin */
+    padding: 0; /* Removes default padding */
+    box-sizing: border-box; /* Ensures consistent box sizing */
+    background-color: rgb(30, 30, 30); /* Sets a dark background */
+    color: white; /* Sets text color to white */
+    display: flex; /* Enables flexbox for layout */
+    flex-direction: column; /* Arranges elements in a vertical column */
+    height: 100vh; /* Makes the body cover the full viewport height */
+}
+
+/* Header styling */
+header {
+    background-color: rgb(30, 30, 30); /* Matches the body background */
+    color: white; /* Sets text color to white */
+    padding: 2vh 5vw; /* Adds responsive padding */
+    display: flex; /* Uses flexbox for alignment */
+    justify-content: flex-start; /* Aligns content to the left */
+    align-items: center; /* Centers items vertically */
+    position: fixed; /* Fixes header at the top of the page */
+    top: 0;
+    left: 0;
+    width: 100%; /* Makes the header full width */
+    z-index: 1000; /* Ensures header stays above other elements */
+    transition: box-shadow 0.3s ease; /* Smooth transition for shadow effect */
+}
+
+/* Header shadow effect when scrolled */
+header.scrolled {
+    box-shadow: 0 8px 20px rgba(210, 191, 195, 0.8); /* Adds shadow when scrolling */
+}
+
+/* Logo styling */
+#logo {
+    width: 15vw; /* Sets the logo width relative to the viewport */
+    height: auto; /* Maintains aspect ratio */
+    margin-right: 3vw; /* Adds space to the right */
+    margin-left: -1vw; /* Slightly shifts the logo to the left */
+    margin-top: 1vw; /* Moves the logo down */
+}
+
+/* Navigation menu styling */
+nav ul {
+    list-style: none; /* Removes default bullet points */
+    padding: 0; /* Removes default padding */
+    margin: 0; /* Removes default margin */
+    display: flex; /* Uses flexbox for horizontal layout */
+    align-items: center; /* Aligns items vertically */
+}
+
+/* Navigation list items */
+nav ul li {
+    margin: 0 1.5vw; /* Adds spacing between menu items */
+}
+
+/* Navigation links */
+nav ul li a {
+    color: white; /* Sets text color to white */
+    text-decoration: none; /* Removes default underline */
+    font-size: 1.5vw; /* Sets a responsive font size */
+    font-family: 'Poppins', sans-serif; /* Ensures consistent typography */
+    font-weight: normal; /* Uses normal font weight */
+    position: relative; /* Enables positioning for the underline effect */
+    padding-bottom: 5px; /* Adds space below the text */
+}
+
+/* Underline effect for navigation links */
+nav ul li a::after {
+    content: ''; /* Creates an empty pseudo-element */
+    position: absolute; /* Positions it relative to the link */
+    left: 0;
+    bottom: 0;
+    width: 100%; /* Makes the underline span the full width */
+    height: 2px; /* Sets the underline thickness */
+    background-color: rgb(255, 51, 95); /* Sets the underline color */
+    transform: scaleX(0); /* Initially hides the underline */
+    transform-origin: bottom left; /* Ensures animation starts from the left */
+    transition: transform 0.3s ease; /* Smooth transition effect */
+}
+
+/* Hover effect for navigation links */
+nav ul li a:hover::after {
+    transform: scaleX(1); /* Expands the underline on hover */
+}
+
+/* Main content styling */
+main {
+    flex-grow: 1; /* Allows the main content to expand within the available space */
+    display: flex; /* Uses flexbox for layout */
+    flex-direction: column; /* Arranges elements in a vertical column */
+    align-items: center; /* Centers content horizontally */
+    justify-content: flex-start; /* Aligns content to the top */
+    padding-top: 15vh; /* Adds space at the top to avoid overlapping with the fixed header */
+}
+
+/* Contact title styling */
+#contact-title {
+    font-size: 3vw; /* Sets a responsive font size */
+    color: rgb(255, 51, 95); /* Sets the text color */
+    text-align: center; /* Centers the text */
+    font-weight: normal; /* Uses a normal font weight */
+    margin-bottom: 2vh; /* Adds space below the title */
+    margin-top: 5vh; /* Adds space above the title */
+}
+
+/* Contact form styling */
+#contact-form {
+    display: grid; /* Uses CSS Grid for layout */
+    grid-template-columns: 1fr 1fr; /* Creates two equal columns */
+    gap: 2vw; /* Adds spacing between grid items */
+    width: 80%; /* Sets the form width relative to the viewport */
+    max-width: 800px; /* Limits the maximum width */
+    margin: 5vh auto; /* Centers the form and adds vertical spacing */
+}
+
+/* Full-width inputs */
+.full-width {
+    grid-column: span 2; /* Makes the element span across both columns */
+}
+
+/* Error message styling */
+.error-message {
+    color: red; /* Sets the text color to red */
+    font-size: 12px; /* Reduces font size for error messages */
+}
+
+/* Customization for text and link */
+.full-width label {
+    font-family: 'Poppins', sans-serif; /* Sets the font style */
+    font-weight: 400; /* Defines the font weight */
+    line-height: 1.6; /* Improves readability with increased line spacing */
+}
+
+.full-width a {
+    color: rgb(255, 51, 95); /* Sets the link color */
+    text-decoration: none; /* Removes the default underline */
+    font-weight: 600; /* Makes the text slightly bolder */
+}
+
+.full-width a:hover {
+    text-decoration: underline; /* Adds underline on hover for better UX */
+}
+
+/* Button styling */
+.btn-container {
+    grid-column: span 2; /* Centers the button by spanning both columns */
+    display: flex; /* Uses flexbox for alignment */
+    justify-content: center; /* Centers the button horizontally */
+}
+
+.btn-enviar {
+    font-family: 'Poppins', sans-serif; /* Sets the font style */
+    background-color: rgb(255, 51, 95); /* Sets the button color */
+    color: white; /* Sets text color to white */
+    border: none; /* Removes default border */
+    border-radius: 20px; /* Rounds the button corners */
+    padding: 15px 12px; /* Adds internal spacing */
+    font-size: 1.2rem; /* Sets a readable font size */
+    cursor: pointer; /* Changes cursor to pointer on hover */
+    width: 50%; /* Defines button width */
+    transition: background-color 0.4s ease; /* Smooth transition effect */
+}
+
+/* Hover effect for the button */
+.btn-enviar:hover {
+    background-color: rgb(210, 26, 90);
+}
+
+/* Slider switch styling */
+.switch {
+    position: relative; /* Allows absolute positioning for child elements */
+    display: inline-block; /* Ensures the switch behaves like an inline element */
+    width: 50px; /* Defines the width of the switch */
+    height: 25px; /* Defines the height of the switch */
+    margin-left: 50px; /* Adds space to the left */
+}
+
+.switch input {
+    opacity: 0; /* Hides the default checkbox */
+    width: 0; /* Eliminates default width */
+    height: 0; /* Eliminates default height */
+}
+
+/* Slider track */
+.slider {
+    position: absolute; /* Positions the slider within the .switch container */
+    cursor: pointer; /* Changes cursor to pointer for better UX */
+    top: 0; /* Aligns the slider to the top */
+    left: 0; /* Aligns the slider to the left */
+    right: 0; /* Ensures full width */
+    bottom: 0; /* Ensures full height */
+    background-color: #444; /* Sets the default background color */
+    border-radius: 25px; /* Makes the slider fully rounded */
+    transition: 0.4s; /* Adds smooth transition effects */
+}
+
+/* Slider handle */
+.slider::before {
+    content: "🌙"; /* Default moon emoji for dark mode */
+    display: flex; /* Centers the emoji inside the circle */
+    align-items: center; /* Vertically centers content */
+    justify-content: center; /* Horizontally centers content */
+    position: absolute; /* Positions the handle within the slider */
+    height: 18px; /* Sets handle size */
+    width: 18px; /* Sets handle size */
+    left: 4px; /* Positions the handle to the left */
+    bottom: 3.5px; /* Aligns the handle properly */
+    background-color: white; /* Sets the handle background */
+    border-radius: 50%; /* Makes the handle circular */
+    transition: 0.4s; /* Adds smooth transition effect */
+    font-size: 14px; /* Sets emoji size */
+}
+
+/* Styles when the switch is toggled ON */
+input:checked + .slider {
+    background-color: #ccc; /* Changes background to light color */
+}
+
+input:checked + .slider::before {
+    transform: translateX(24px); /* Moves the handle to the right */
+    content: "☀️"; /* Changes the emoji to a sun for light mode */
+    color: rgb(173, 216, 230); /* Changes the emoji color */
+}
+
+/* Form group styling for single-column inputs */
+.form-group {
+    display: flex; /* Flexbox for alignment */
+    flex-direction: column; /* Stack items vertically */
+}
+
+/* Label styling */
+.form-group label {
+    font-size: 1.2vw; /* Responsive font size */
+    color: white; /* White text color */
+    margin-bottom: 0.5vh; /* Space below the label */
+}
+
+/* Input styling */
+.form-group input {
+    width: 100%; /* Full width */
+    padding: 1vh; /* Padding inside inputs */
+    border: none; /* Removes border */
+    border-bottom: 2px solid white; /* White bottom border */
+    background: transparent; /* Transparent background */
+    color: white; /* White text color */
+    font-size: 1vw; /* Responsive font size */
+    outline: none; /* Removes focus outline */
+    font-family: 'Poppins', sans-serif; /* Consistent font family */
+    font-weight: normal; /* Normal text */
+}
+
+/* Placeholder styling */
+.form-group input::placeholder {
+    color: rgba(255, 255, 255, 0.7); /* Light white color */
+    font-family: 'Poppins', sans-serif; /* Consistent font family */
+    font-weight: normal; /* Normal text */
+}
+
+/* Bottom reflection on inputs */
+.form-group input:focus {
+    box-shadow: 0 4px 8px -4px rgba(0, 0, 0, 0.5); /* Shadow only at the bottom */
+    border-bottom: 2px solid rgb(255, 51, 95); /* Highlights the bottom border */
+    outline: none; /* Removes the default outline */
+    transition: box-shadow 0.3s ease, border-bottom 0.3s ease; /* Smooth animation for shadow and border */
+}
+
+/* Bottom reflection on inputs */
+.form-group input:focus {
+    box-shadow: 0 4px 8px -4px rgba(0, 0, 0, 0.5); /* Shadow only at the bottom */
+    border-bottom: 2px solid rgb(255, 51, 95); /* Highlights the bottom border */
+    outline: none; /* Removes the default outline */
+    transition: box-shadow 0.3s ease, border-bottom 0.3s ease; /* Smooth animation for shadow and border */
+}
+
+/* Input styling */
+.form-group select {
+    width: 100%; /* Full width */
+    padding: 1vh; /* Padding inside inputs */
+    border: none; /* Removes border */
+    border-bottom: 2px solid white; /* White bottom border */
+    background: transparent; /* Transparent background */
+    color: white; /* White text color */
+    font-size: 1vw; /* Responsive font size */
+    outline: none; /* Removes focus outline */
+    font-family: 'Poppins', sans-serif; /* Consistent font family */
+    font-weight: normal; /* Normal text */
+}
+
+/* Set background and text color for options in specific dropdowns */
+#hora option {
+    background-color: rgb(30, 30, 30); /* Dark background */
+    color: white; /* White text */
+}
+
+#identifier-type option {
+    background-color: rgb(30, 30, 30);
+    color: white;
+}
+
+#customer-type option {
+    background-color: rgb(30, 30, 30);
+    color: white;
+}
+
+/* Light mode adjustments */
+.light-mode {
+    background-color: white; /* Light background */
+    color: black; /* Black text */
+}
+
+/* Light mode: Header styling */
+.light-mode header {
+    background-color: white;
+}
+
+/* Light mode: Navigation links */
+.light-mode nav ul li a {
+    color: black;
+}
+
+/* Light mode: Navigation underline effect */
+.light-mode nav ul li a::after {
+    background-color: rgb(0, 40, 159); /* Blue underline */
+}
+
+/* Light mode: Form labels */
+.light-mode .form-group label {
+    color: black;
+}
+
+/* Light mode: Contact title */
+.light-mode #contact-title {
+    color: rgb(0, 40, 159); /* Blue text */
+}
+
+/* Light mode: Form input styling */
+.light-mode .form-group input {
+    border-bottom: 2px solid rgb(0, 40, 159); /* Blue underline */
+}
+
+/* Light mode: Focus effect for form inputs */
+.light-mode .form-group input:focus {
+    border-bottom: 2px solid rgb(0, 40, 159);
+    box-shadow: 0 4px 8px -4px rgba(0, 40, 159, 0.7); /* Soft blue shadow */
+}
+
+/* Light mode: Focus effect for textarea */
+.light-mode .comment-box textarea:focus {
+    border-color: rgb(0, 40, 159);
+    box-shadow: 0 4px 12px -4px rgba(0, 40, 159, 0.7); /* Stronger blue shadow */
+}
+
+/* Light mode: Textarea styling */
+.light-mode .comment-box textarea {
+    color: black;
+    border: 2px solid rgb(0, 40, 159);
+}
+
+/* Light mode: Input text color */
+.light-mode .form-group input {
+    color: black;
+}
+
+/* Light mode: Placeholder text color */
+.light-mode .form-group input::placeholder {
+    color: rgb(150, 146, 146); /* Gray placeholder */
+}
+
+/* Light mode: Full-width links */
+.light-mode .full-width a {
+    color: rgb(0, 40, 159); /* Blue text */
+}
+
+/* Light mode: Submit button */
+.light-mode .btn-enviar {
+    background-color: rgb(0, 40, 159); /* Blue background */
+}
+
+/* Light mode: Submit button hover effect */
+.light-mode .btn-enviar:hover {
+    background-color: rgb(0, 30, 120); /* Darker blue */
+}
+
+/* Light mode: Select dropdown styling */
+.light-mode .form-group select {
+    border-bottom: 2px solid rgb(0, 40, 159);
+}
+
+/* Light mode: Focus effect for select dropdown */
+.light-mode .form-group select:focus {
+    border-bottom: 2px solid rgb(0, 40, 159);
+    box-shadow: 0 4px 8px -4px rgba(0, 40, 159, 0.7);
+}
+
+/* Light mode: Select dropdown text color */
+.light-mode .form-group select {
+    color: black;
+}
+
+/* Light mode: Set white background and black text for dropdown options */
+.light-mode #hora option {
+    background-color: white;
+    color: black;
+}
+
+/* Light mode: Set white background and black text for dropdown options 
+   in 'identifier-type' and 'customer-type' selects */
+   .light-mode #identifier-type option {
+    background-color: white;
+    color: black;
+}
+
+.light-mode #customer-type option {
+    background-color: white;
+    color: black;
+}
+
+/* Footer Section */
+footer {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(44, 44, 44);
+    color: white;
+    padding: 6vh 80px;
+    margin-top: auto;
+    font-size: 0.9rem;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.footer-column {
+    flex: 1;
+    padding: 0 30px;
+}
+
+.footer-column p {
+    margin: 8px 0;
+}
+
+.footer-column a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.85rem;
+}
+
+.footer-column a:hover {
+    text-decoration: underline;
+}
+
+.footer-column img {
+    width: 25px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.footer-divider {
+    border-top: 1px solid white;
+    margin: 20px 0;
+}
+
+.footer-copyright {
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    nav ul li {
+        margin: 1vw 0;
+    }
+    nav ul li a {
+        font-size: 4vw;
+    }
+    .polygon-1 {
+        height: 150vh;
+    }
+    .right-image {
+        width: 40vw;
+        top: 10vh;
+    }
+}
+@media (min-width: 1200px) {
+    nav ul li a {
+        font-size: 1.2vw;
+    }
+    .polygon-1 {
+        height: 180vh;
+    }
+}
+
+
