@@ -304,6 +304,10 @@ input:checked + .slider::before {
     color: white;
 }
 
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(100%);
+}
+
 /* Light mode adjustments */
 .light-mode {
     background-color: white; /* Light background */
@@ -415,6 +419,10 @@ input:checked + .slider::before {
 .light-mode #customer-type option {
     background-color: white;
     color: black;
+}
+
+.light-mode input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(0%);
 }
 
 /* Footer Section */
