@@ -89,6 +89,16 @@ if (telefonoInput) {
 
 // Wait for the DOM to be fully loaded before running the script
 document.addEventListener('DOMContentLoaded', () => {
+    // Dictionary with friendly names for fields
+    const fieldNames = {
+        name: "Nombres",
+        last_name: "Apellidos",
+        email: "Correo electrónico",
+        residence_state: "Departamento de Residencia",
+        residence_city: "Ciudad de Residencia",
+        comment: "Comentarios"
+    };
+
     // Select the form element with the ID 'contact-form'
     const contactForm = document.getElementById('contact-form');
 
@@ -98,14 +108,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Collect form data from input fields
         const formData = {
-            name: document.getElementById('nombre').value, // Get the value of the 'nombre' input
-            last_name: document.getElementById('apellido').value, // Get the value of the 'apellido' input
-            email: document.getElementById('correo').value, // Get the value of the 'correo' input
-            phone: document.getElementById('telefono').value || null, // Get 'telefono' value or null if empty
-            residence_state: document.getElementById('departamento').value, // Get the value of 'departamento'
-            residence_city: document.getElementById('ciudad').value, // Get the value of 'ciudad'
-            comment: document.getElementById('comentarios').value || null // Get 'comentarios' value or null if empty
+            name: document.getElementById('nombre').value.trim(),
+            last_name: document.getElementById('apellido').value.trim(),
+            email: document.getElementById('correo').value.trim(),
+            phone: document.getElementById('telefono').value.trim() || null,
+            residence_state: document.getElementById('departamento').value.trim(),
+            residence_city: document.getElementById('ciudad').value.trim(),
+            comment: document.getElementById('comentarios').value.trim()
         };
+
+        // Validate that required fields are not empty or filled only with spaces
+        for (const key in formData) {
+            if (key !== "phone" && (!formData[key] || formData[key].length === 0)) {
+                alert(`El campo "${fieldNames[key]}" es obligatorio y no puede estar vacío.`);
+                return; // Detiene el envío del formulario
+            }
+        }
 
         try {
             // Send a POST request to the backend server endpoint
