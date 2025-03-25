@@ -1,19 +1,29 @@
+const identifierTypeMap = {}; // Dictionary for mapping ID to name
+
 document.addEventListener('DOMContentLoaded', async () => {
     const identifierTypeSelect = document.getElementById('identifier-type');
 
     try {
-        const response = await fetch('http://localhost:8080/identifier-type'); // Make the GET request
+        const response = await fetch('http://localhost:8080/identifier-type', {
+            method: "GET",
+            headers: {
+                "Username": "portalwebuser@totesmatriz.com" 
+            }
+        });
+
         if (!response.ok) {
             throw new Error(`Error en la solicitud: ${response.statusText}`);
         }
 
-        const identifierTypes = await response.json(); // Convert response to JSON
+        const identifierTypes = await response.json();
 
-        // Fill the select with the obtained identifier types
+        // Llenar el select y el diccionario
         identifierTypes.forEach(type => {
+            identifierTypeMap[type.id] = type.name; // Save to dictionary
+
             const option = document.createElement('option');
-            option.value = type.id;  // Use numeric ID as value
-            option.textContent = type.name; // Display the identifier name
+            option.value = type.id;  
+            option.textContent = type.name;
             identifierTypeSelect.appendChild(option);
         });
 
@@ -24,60 +34,228 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("contact-form");
+    const fechaInput = document.getElementById("fecha");
+    const horaInput = document.getElementById("hora");
+    const fechaHoraFinalInput = document.getElementById("fecha-hora-final");
+
+    function actualizarFechaHoraFinal() {
+        const fecha = fechaInput.value;
+        const hora = horaInput.value;
+    
+        if (fecha && hora) {
+            // Add "Z" to be interpreted in UTC
+            fechaHoraFinalInput.value = `${fecha}T${hora}:00Z`;
+        }
+    }    
+    
+    // Listen for changes in date and time fields
+    fechaInput.addEventListener("change", actualizarFechaHoraFinal);
+    horaInput.addEventListener("change", actualizarFechaHoraFinal);
 
     form.addEventListener("submit", async function (event) {
         event.preventDefault(); // Avoid normal form submission
 
-        // Capturar los valores de los inputs
-        const customerName = document.getElementById("nombre").value.trim();
-        const lastName = document.getElementById("apellido").value.trim();
-        const phoneNumbers = document.getElementById("telefono").value.trim();
-        const customerType = document.getElementById("customer-type").value; 
-        const identifierTypeId = document.getElementById("identifier-type").value;
-        const customerId = document.getElementById("identificacion-num").value.trim();
-        const email = document.getElementById("correo").value.trim();
-        const address = document.getElementById("address").value.trim();
+        // Ensure the date and time have been combined before sending
+        actualizarFechaHoraFinal();
 
-        // Convert customerType to isBusiness
-        const isBusiness = customerType === "empresa"; 
+        const dateTime = fechaHoraFinalInput.value.trim();
+        if (!dateTime) {
+            alert("Por favor, selecciona una fecha y hora.");
+            return;
+        }
 
-        // Build the JSON object
-        const customerData = {
-            customerName: customerName,
-            lastName: lastName,
-            phoneNumbers: phoneNumbers,
-            isBusiness: isBusiness,
-            identifierTypeId: parseInt(identifierTypeId, 10), 
-            customerId: customerId,
-            email: email,
-            address: address,
-            customerState: true 
+        // Capture the other values ​​of the form
+        const customerName = document.getElementById("nombre")?.value.trim() || "";
+        const lastName = document.getElementById("apellido")?.value.trim() || "";
+        const phoneNumbers = document.getElementById("telefono")?.value.trim() || "";
+        const customerType = document.getElementById("customer-type")?.value || "";
+        const identifierTypeId = document.getElementById("identifier-type")?.value || "";
+        const customerId = document.getElementById("identificacion-num")?.value.trim() || "";
+        const email = document.getElementById("correo")?.value.trim() || "";
+        const address = document.getElementById("address")?.value.trim() || "";
+
+        const parsedCustomerId = parseInt(customerId, 10);
+        const parsedIdentifierTypeId = parseInt(identifierTypeId, 10);
+        const isBusiness = customerType === "empresa";
+
+        const appointmentData = {
+            dateTime,
+            state: true,
+            customerId: parsedCustomerId,
+            customerName,
+            isBusiness,
+            address,
+            phoneNumbers,
+            customerState: true,
+            email,
+            lastName,
+            identifierTypeId: parsedIdentifierTypeId,
         };
 
+        console.log("Datos enviados:", appointmentData);
+
         try {
-            const response = await fetch("http://localhost:8080/customer", {
+            const response = await fetch("http://localhost:8080/appointment", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
+                    "Username": "portalwebuser@example.com"
                 },
-                body: JSON.stringify(customerData),
+                body: JSON.stringify(appointmentData),
             });
 
             if (!response.ok) {
-                throw new Error(`Error en la solicitud: ${response.statusText}`);
+                throw new Error(`Error en la solicitud: ${response.status} - ${response.statusText}`);
             }
 
-            const result = await response.json();
-            alert("Cliente registrado exitosamente.");
-
-            // Clear the form after submitting it
+            alert("¡Cita registrada exitosamente! Puedes Revisar el Resúmen de tu Cita en el archivo PDF que se ha descargado");
+            generarPDFCita(appointmentData)
             form.reset();
         } catch (error) {
             console.error("Error al enviar el formulario:", error);
-            alert("Hubo un problema al registrar el cliente. Inténtalo de nuevo.");
+            alert("Oops... Hubo un problema al registrar la cita.");
         }
     });
 });
+
+async function generarPDFCita(appointmentData) {
+    try {
+        const fechaHoraActual = new Date().toLocaleString("es-CO", { timeZone: "America/Bogota" });
+        const appointmentId = await obtenerAppointmentId(appointmentData.customerId, appointmentData.dateTime);
+        if (!appointmentId) {
+            throw new Error("No se pudo obtener el ID de la cita.");
+        }
+
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF({ orientation: "portrait", format: "letter" });
+
+        const pageWidth = doc.internal.pageSize.getWidth();
+        const headerHeight = 25;
+        doc.setFillColor(0, 0, 0);
+        doc.rect(0, 10, pageWidth, headerHeight, "F");
+
+        doc.setTextColor(255, 255, 255);
+        doc.setFont("helvetica", "bold");
+        doc.setFontSize(10);
+        doc.text("TOTES BGA - Matriz", 15, 20);
+
+        const imageUrl = "assets/images/logo_header.png";
+
+        // Turning the image into a promise
+        await new Promise((resolve) => {
+            const img = new Image();
+            img.src = imageUrl;
+            img.onload = function () {
+                const imgWidth = 60;
+                const imgHeight = 15;
+                const imgX = pageWidth - imgWidth - 15;
+                const imgY = 13;
+                doc.addImage(img, "PNG", imgX, imgY, imgWidth, imgHeight);
+                resolve();
+            };
+        });
+
+        const margenDebajoFranja = 10;
+        let startY = 10 + headerHeight + margenDebajoFranja;
+
+        doc.setTextColor(0, 0, 0);
+        doc.setFont("helvetica", "bold");
+        doc.setFontSize(14);
+        doc.text("Confirmación de Cita", pageWidth / 2, startY, { align: "center" });
+
+        doc.setFont("helvetica", "normal");
+        doc.setFontSize(10);
+
+        const descripcion = `Este documento confirma la cita registrada en el sistema de TOTES BGA - Matriz. A continuación, se detalla la información de la cita programada. Fecha de generación: ${fechaHoraActual}.`;
+
+        let marginX = 15;
+        let marginY = startY + 10;
+        let maxWidth = pageWidth - 30;
+
+        let textoDividido = doc.splitTextToSize(descripcion, maxWidth);
+        doc.text(textoDividido, marginX, marginY);
+
+        let startTableY = marginY + doc.getTextDimensions(textoDividido).h + 5;
+
+        const columnas = ["Campo", "Información"];
+
+        const identifierTypeName = identifierTypeMap[appointmentData.identifierTypeId] || "Desconocido";
+
+        const filas = [
+            ["Appointment ID", appointmentId],
+            ["Nombre", appointmentData.customerName],
+            ["Apellido", appointmentData.lastName],
+            ["Teléfono", appointmentData.phoneNumbers],
+            ["Correo", appointmentData.email],
+            ["Dirección", appointmentData.address],
+            ["Tipo de Cliente", appointmentData.isBusiness ? "Empresa" : "Individuo"],
+            ["Identificación", appointmentData.customerId],
+            ["Tipo de Identificación", identifierTypeName], 
+            ["Fecha y Hora", appointmentData.dateTime],
+            ["Estado", appointmentData.state ? "Activo" : "Inactivo"]
+        ];
+        
+        doc.autoTable({
+            head: [columnas],
+            body: filas,
+            startY: startTableY,
+            theme: "striped",
+            styles: { fontSize: 10, halign: "center", cellPadding: 3 },
+            headStyles: { fillColor: [52, 73, 94], textColor: 255, fontSize: 10 },
+            columnStyles: {
+                0: { cellWidth: 60, fontStyle: "bold" },
+                1: { cellWidth: 120 }
+            },
+            tableWidth: "wrap",
+            margin: { top: 10, bottom: 10 },
+            startX: "center",
+            pageBreak: "auto"
+        });
+
+        doc.save(`Cita_${appointmentData.customerId}.pdf`);
+    } catch (error) {
+        console.error("Error al generar el PDF:", error);
+        alert("Error al generar el PDF: " + error.message);
+    }
+}
+
+function formatearParaConsulta(dateISO) {
+    const fecha = new Date(dateISO); // Convert the date with the "Z"
+
+    const anio = fecha.getUTCFullYear();
+    const mes = String(fecha.getUTCMonth() + 1).padStart(2, "0");
+    const dia = String(fecha.getUTCDate()).padStart(2, "0");
+    const horas = String(fecha.getUTCHours()).padStart(2, "0");
+    const minutos = String(fecha.getUTCMinutes()).padStart(2, "0");
+    const segundos = String(fecha.getUTCSeconds()).padStart(2, "0");
+
+    return `${anio}-${mes}-${dia} ${horas}:${minutos}:${segundos}`; // Format without "T" or "Z"
+}
+
+async function obtenerAppointmentId(customerId, dateTime) {
+    try {
+        const dateTimeFormatted = formatearParaConsulta(dateTime); // Convert for query
+        const encodedDateTime = encodeURIComponent(dateTimeFormatted); // Encode spaces
+        const url = `http://localhost:8080/appointments/byCustomerAndDate?customerId=${customerId}&dateTime=${encodedDateTime}`;
+
+        const response = await fetch(url, { method: "GET" });
+
+        if (!response.ok) {
+            throw new Error(`Error en la solicitud: ${response.status} - ${response.statusText}`);
+        }
+
+        const data = await response.json();
+        
+        if (data && data.id) {
+            return data.id;
+        } else {
+            throw new Error("No se encontró el appointmentId en la respuesta.");
+        }
+    } catch (error) {
+        console.error("Error al obtener el ID de la cita:", error);
+        return null;
+    }
+}
 
 // Detects the scroll event to add a shadow effect to the header
 document.addEventListener('scroll', () => {
