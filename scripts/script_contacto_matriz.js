@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const response = await fetch('http://localhost:8080/identifier-type', {
             method: "GET",
             headers: {
-                "Username": "portalwebuser@totesmatriz.com" 
+                "Username": "portalwebuser@totesmatriz.com"
             }
         });
 
@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
-                    "Username": "portalwebuser@example.com"
+                    "Username": "portalwebuser@totesmatriz.com"
                 },
                 body: JSON.stringify(appointmentData),
             });
@@ -238,7 +238,12 @@ async function obtenerAppointmentId(customerId, dateTime) {
         const encodedDateTime = encodeURIComponent(dateTimeFormatted); // Encode spaces
         const url = `http://localhost:8080/appointments/byCustomerAndDate?customerId=${customerId}&dateTime=${encodedDateTime}`;
 
-        const response = await fetch(url, { method: "GET" });
+        const response = await fetch(url, { 
+            method: "GET",
+            headers: {
+                "Username": "portalwebuser@totesmatriz.com"
+            }
+        });
 
         if (!response.ok) {
             throw new Error(`Error en la solicitud: ${response.status} - ${response.statusText}`);
