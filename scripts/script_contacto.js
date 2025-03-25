@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const fieldNames = {
         name: "Nombres",
         last_name: "Apellidos",
-        email: "Correo electrónico",
+        email: "Correo Electrónico",
         residence_state: "Departamento de Residencia",
         residence_city: "Ciudad de Residencia",
         comment: "Comentarios"
