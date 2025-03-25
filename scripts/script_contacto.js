@@ -112,7 +112,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const response = await fetch('http://localhost:8080/comment', {
                 method: 'POST', // HTTP method used for sending data
                 headers: {
-                    'Content-Type': 'application/json' // Indicate that the payload is in JSON format
+                    'Content-Type': 'application/json', // Indicate that the payload is in JSON format
+                    "Username": "portalwebuser@totesmatriz.com" // Username header
                 },
                 body: JSON.stringify(formData) // Convert form data to a JSON string
             });
