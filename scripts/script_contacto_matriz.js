@@ -32,7 +32,35 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 });
 
+
+// Select the input element with the ID 'telefono'
+const telefonoInput = document.getElementById('telefono');
+
+// Check if the input element exists in the DOM
+if (telefonoInput) {
+    // Add an event listener to the 'keydown' event (when a key is pressed)
+    telefonoInput.addEventListener('keydown', (event) => {
+        // Allow only numeric characters [0-9] and essential control keys (backspace, delete, arrow keys, tab)
+        if (
+            !/[0-9]/.test(event.key) && // Ensure the key is a digit (0-9)
+            !['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight', 'Tab'].includes(event.key) // Allow specific control keys
+        ) {
+            event.preventDefault(); // Block any other key press
+        }
+    });
+}
+
 document.addEventListener("DOMContentLoaded", function () {
+    // Dictionary with friendly names for fields
+    const fieldNames = {
+        customerName: "Nombres",
+        lastName: "Apellidos",
+        email: "Correo Electrónico",
+        customerId: "Número de Identificación",
+        phoneNumbers: "Teléfono Celular",
+        address: "Dirección de Residencia"
+    };
+
     const form = document.getElementById("contact-form");
     const fechaInput = document.getElementById("fecha");
     const horaInput = document.getElementById("hora");
@@ -65,14 +93,14 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         // Capture the other values ​​of the form
-        const customerName = document.getElementById("nombre")?.value.trim() || "";
-        const lastName = document.getElementById("apellido")?.value.trim() || "";
-        const phoneNumbers = document.getElementById("telefono")?.value.trim() || "";
-        const customerType = document.getElementById("customer-type")?.value || "";
-        const identifierTypeId = document.getElementById("identifier-type")?.value || "";
-        const customerId = document.getElementById("identificacion-num")?.value.trim() || "";
-        const email = document.getElementById("correo")?.value.trim() || "";
-        const address = document.getElementById("address")?.value.trim() || "";
+        const customerName = document.getElementById("nombre")?.value.trim();
+        const lastName = document.getElementById("apellido")?.value.trim();
+        const phoneNumbers = document.getElementById("telefono")?.value.trim();
+        const customerType = document.getElementById("customer-type")?.value;
+        const identifierTypeId = document.getElementById("identifier-type")?.value;
+        const customerId = document.getElementById("identificacion-num")?.value.trim();
+        const email = document.getElementById("correo")?.value.trim();
+        const address = document.getElementById("address")?.value.trim();
 
         const parsedCustomerId = parseInt(customerId, 10);
         const parsedIdentifierTypeId = parseInt(identifierTypeId, 10);
@@ -92,7 +120,14 @@ document.addEventListener("DOMContentLoaded", function () {
             identifierTypeId: parsedIdentifierTypeId,
         };
 
-        console.log("Datos enviados:", appointmentData);
+        for (const key in appointmentData) {
+            if (!(key in fieldNames)) continue; // Saltar claves que no están en el diccionario
+        
+            if (!appointmentData[key] || appointmentData[key].length === 0) {
+                alert(`El campo "${fieldNames[key]}" es obligatorio y no puede estar vacío.`);
+                return; // Detiene el envío del formulario
+            }
+        }
 
         try {
             const response = await fetch("http://localhost:8080/appointment", {

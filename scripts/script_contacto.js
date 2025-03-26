@@ -87,6 +87,19 @@ if (telefonoInput) {
     });
 }
 
+// Select the email field
+const emailInput = document.getElementById('correo');
+
+// Checks if the field exists in the DOM
+if (emailInput) {
+    // Listen for the keydown event
+    emailInput.addEventListener('keydown', (event) => {
+        if (event.key === ' ') {
+            event.preventDefault(); // Lock the space bar
+        }
+    });
+}
+
 // Wait for the DOM to be fully loaded before running the script
 document.addEventListener('DOMContentLoaded', () => {
     // Dictionary with friendly names for fields
