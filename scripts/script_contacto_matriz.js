@@ -50,6 +50,19 @@ if (telefonoInput) {
     });
 }
 
+// Select the email field
+const emailInput = document.getElementById('correo');
+
+// Checks if the field exists in the DOM
+if (emailInput) {
+    // Listen for the keydown event
+    emailInput.addEventListener('keydown', (event) => {
+        if (event.key === ' ') {
+            event.preventDefault(); // Lock the space bar
+        }
+    });
+}
+
 document.addEventListener("DOMContentLoaded", function () {
     // Dictionary with friendly names for fields
     const fieldNames = {
@@ -121,11 +134,11 @@ document.addEventListener("DOMContentLoaded", function () {
         };
 
         for (const key in appointmentData) {
-            if (!(key in fieldNames)) continue; // Saltar claves que no están en el diccionario
+            if (!(key in fieldNames)) continue; // Skip keys that are not in the dictionary
         
             if (!appointmentData[key] || appointmentData[key].length === 0) {
                 alert(`El campo "${fieldNames[key]}" es obligatorio y no puede estar vacío.`);
-                return; // Detiene el envío del formulario
+                return; // Stops the form from being sent
             }
         }
 

@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
         for (const key in formData) {
             if (key !== "phone" && (!formData[key] || formData[key].length === 0)) {
                 alert(`El campo "${fieldNames[key]}" es obligatorio y no puede estar vacío.`);
-                return; // Detiene el envío del formulario
+                return; // Stops the form from being sent
             }
         }
 
