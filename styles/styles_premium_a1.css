@@ -155,14 +155,15 @@ input:checked + .slider::before {
 /* Styles for the "Ferrari" text */
 .ferrari {
     position: absolute; /* Allows the element to be positioned freely relative to its nearest positioned ancestor or the viewport */
-    top: 20vh; /* Positions the element 20% down from the top of the viewport (viewport height) */
-    left: 50vw; /* Positions the element 50% from the left of the viewport (viewport width) */
+    top: 20vh; /* Positions the element 20% of the viewport height from the top */
+    left: 65vw; /* Positions the element 65% of the viewport width from the left */
     font-family: 'Poppins', sans-serif; /* Uses the "Poppins" font, falling back to a generic sans-serif if unavailable */
     font-weight: 650; /* Sets the font weight to 650, making it bold but not the boldest (values range from 100 to 900) */
     color: gray; /* Sets the text color to gray */
-    font-size: 2vw; /* Sets the font size relative to the viewport width (2% of the viewport's width) */
+    font-size: 2vw; /* Sets the font size to 2% of the viewport width, making it responsive to screen size */
     z-index: 999; /* Ensures the text appears on top of other elements; a higher value means closer to the foreground */
 }
+
 
 /* Style adjustments for the "Ferrari" text in light mode */
 .light-mode .ferrari {
@@ -172,12 +173,12 @@ input:checked + .slider::before {
 /* Styles for the "URBANO SPORT" text */
 .stellar-gt {
     position: absolute; /* Allows the element to be positioned freely relative to its nearest positioned ancestor or the viewport */
-    top: 30vh; /* Positions the element 30% down from the top of the viewport (viewport height) */
-    left: 40vw; /* Positions the element 35% from the left of the viewport (viewport width) */
+    top: 23vh; /* Positions the element 23% of the viewport height from the top */
+    left: 55vw; /* Positions the element 55% of the viewport width from the left */
     font-family: 'Poppins', sans-serif; /* Uses the "Poppins" font, falling back to a generic sans-serif if unavailable */
     font-weight: bold; /* Sets the font weight to bold (equivalent to 700 in numerical values) */
     color: gray; /* Sets the text color to gray */
-    font-size: 5vw; /* Sets the font size relative to the viewport width (5% of the viewport's width) */
+    font-size: 5vw; /* Sets the font size to 5% of the viewport width, making it responsive to screen size */
     z-index: -1; /* Places the text behind other elements; a lower value moves it further into the background */
 }
 
@@ -186,22 +187,23 @@ input:checked + .slider::before {
     color: rgb(0, 40, 159); /* Changes the text color to a dark blue (RGB) when the light mode class is applied */
 }
 
-/* Styles for the "premium-a1-1" class, likely used for an image or main visual element */
+/* Styles for the "premium-a1-1" class */
 .premium-a1-1 {
     position: relative; /* Positions the element relative to its normal position in the document flow */
-    top: 10vh; /* Moves the element 20% down relative to the viewport height (vh = viewport height unit) */
-    left: 4vw; /* Keeps the element aligned with the left edge of the viewport (0% of the viewport width) */
-    width: 70vw; /* Sets the element's width to 50% of the viewport width, making it responsive */
+    top: 10vh; /* Moves the element 10% of the viewport height down from its normal position */
+    left: 15vw; /* Moves the element 15% of the viewport width to the right from its normal position */
+    width: 60vw; /* Sets the element’s width to 60% of the viewport width, making it responsive */
     height: auto; /* Automatically adjusts the height to maintain the element’s aspect ratio */
     z-index: 2; /* Ensures the element appears above content with a lower z-index value */
     overflow: hidden; /* Hides any content that overflows the element’s boundaries */
-    margin-bottom: 50vh;
+    margin-bottom: 50vh; /* Adds a bottom margin of 50% of the viewport height to create spacing below the element */
 }
 
-/* Styles for the "texto-aceleracion" class, likely used for a main acceleration-related text */
+
+/* Styles for the "texto-aceleracion" class */
 .texto-aceleracion {
     position: absolute; /* Allows free positioning relative to the nearest positioned ancestor (or the viewport if none exists) */
-    top: 105vh; /* Positions the element 90% down from the top of the viewport */
+    top: 30vh; /* Positions the element 30% down from the top of the viewport */
     left: 10vw; /* Positions the element 10% from the left side of the viewport */
     font-family: 'Poppins', sans-serif; /* Applies the "Poppins" font, with "sans-serif" as a fallback */
     font-weight: 600; /* Applies a semi-bold weight (600) for the text */
@@ -220,10 +222,10 @@ input:checked + .slider::before {
     font-size: 2vw; /* Sets the font size to 2% of the viewport width for responsive scaling */
 }
 
-/* Styles for the "info-aceleracion" class, likely used for additional acceleration information */
+/* Styles for the "info-aceleracion" class */
 .info-aceleracion {
     position: absolute; /* Allows free positioning relative to the nearest positioned ancestor */
-    top: 113vh; /* Positions the element 98% down from the top of the viewport */
+    top: 38vh; /* Positions the element 38% down from the top of the viewport */
     left: 10vw; /* Positions the element 10% from the left side of the viewport */
     font-family: 'Poppins', sans-serif; /* Applies the "Poppins" font with "sans-serif" as a fallback */
     font-weight: 600; /* Sets the text to a semi-bold style (600 weight) */
@@ -237,10 +239,10 @@ input:checked + .slider::before {
     color: black; /* Changes the text color to black for better contrast in light mode */
 }
 
-/* Styles for the "texto-velocidad" class, likely used for displaying speed-related information */
+/* Styles for the "texto-velocidad" class */
 .texto-velocidad {
     position: absolute; /* Allows the element to be positioned freely relative to its nearest positioned ancestor */
-    top: 121vh; /* Positions the element 105% down from the top of the viewport (slightly beyond the visible area) */
+    top: 46vh; /* Positions the element 46% down from the top of the viewport (slightly beyond the visible area) */
     left: 10vw; /* Positions the element 10% from the left side of the viewport */
     font-family: 'Poppins', sans-serif; /* Uses the "Poppins" font, with "sans-serif" as a fallback */
     font-weight: 600; /* Applies a semi-bold weight (600) to the text */
@@ -259,10 +261,10 @@ input:checked + .slider::before {
     font-size: 2vw; /* Sets the font size to 2% of the viewport width, making it responsive */
 }
 
-/* Styles for the "info-velocidad" class, likely used for additional descriptive speed information */
+/* Styles for the "info-velocidad" class */
 .info-velocidad {
     position: absolute; /* Allows the element to be positioned freely relative to its nearest positioned ancestor */
-    top: 129vh; /* Positions the element 113% down from the top of the viewport (beyond the visible area) */
+    top: 54vh; /* Positions the element 54% down from the top of the viewport (beyond the visible area) */
     left: 10vw; /* Positions the element 10% from the left side of the viewport */
     font-family: 'Poppins', sans-serif; /* Uses the "Poppins" font, with "sans-serif" as a fallback */
     font-weight: 600; /* Applies a semi-bold weight (600) to the text */
@@ -276,44 +278,10 @@ input:checked + .slider::before {
     color: black; /* Changes the text color to black for better visibility in light mode */
 }
 
-/* Styles for the "texto-condicion" class, likely used to display condition-related messages */
-.texto-condicion {
-    position: absolute; /* Allows the element to be positioned freely relative to its nearest positioned ancestor */
-    top: 137vh; /* Positions the element 120% down from the top of the viewport (well beyond the visible area) */
-    left: 10vw; /* Positions the element 10% from the left side of the viewport */
-    font-family: 'Poppins', sans-serif; /* Uses the "Poppins" font, with "sans-serif" as a fallback */
-    font-weight: 600; /* Applies a semi-bold weight (600) to the text */
-    color: rgb(255, 51, 95); /* Sets the text color to a bright pink shade (RGB format) */
-    font-size: 3vw; /* Adjusts the font size to 3% of the viewport width for responsiveness */
-    z-index: 1; /* Ensures this element is displayed above other content with a lower z-index */
-}
-
-/* Changes the color of the "texto-condicion" element in light mode */
-.light-mode .texto-condicion {
-    color: rgb(0, 40, 159); /* Updates the text color to a dark blue for better visibility in light mode */
-}
-
-/* Styles for the "info-condicion" class, likely used to display additional condition-related information */
-.info-condicion {
-    position: absolute; /* Allows the element to be positioned freely relative to its nearest positioned ancestor */
-    top: 145vh; /* Positions the element 128% down from the top of the viewport (beyond the visible area) */
-    left: 10vw; /* Positions the element 10% from the left side of the viewport */
-    font-family: 'Poppins', sans-serif; /* Uses the "Poppins" font, with "sans-serif" as a fallback */
-    font-weight: 600; /* Applies a semi-bold weight (600) to the text */
-    color: white; /* Sets the text color to white, ensuring visibility on dark backgrounds */
-    font-size: 1vw; /* Sets the font size to 1% of the viewport width, ensuring responsiveness */
-    z-index: 1; /* Ensures this element is displayed above other content with a lower z-index */
-}
-
-/* Changes the color of the "info-condicion" element in light mode */
-.light-mode .info-condicion {
-    color: black; /* Updates the text color to black for better contrast in light mode */
-}
-
-/* Styles for the "texto-precio" class, likely used to display price information */
+/* Styles for the "texto-precio" class */
 .texto-precio {
     position: absolute; /* Allows the element to be positioned freely relative to its nearest positioned ancestor */
-    top: 153vh; /* Positions the element 136% down from the top of the viewport (beyond the visible area) */
+    top: 62vh; /* Positions the element 62% down from the top of the viewport (beyond the visible area) */
     left: 10vw; /* Positions the element 10% from the left side of the viewport */
     font-family: 'Poppins', sans-serif; /* Uses the "Poppins" font, with "sans-serif" as a fallback */
     font-weight: 600; /* Applies a semi-bold weight (600) to the text */
@@ -327,10 +295,10 @@ input:checked + .slider::before {
     color: rgb(0, 40, 159); /* Updates the text color to a dark blue for better contrast in light mode */
 }
 
-/* Styles for the "info-precio" class, likely used to display additional price-related information */
+/* Styles for the "info-precio" class */
 .info-precio {
     position: absolute; /* Allows the element to be positioned freely relative to its nearest positioned ancestor */
-    top: 161vh; /* Positions the element 144% down from the top of the viewport (beyond the visible area) */
+    top: 70vh; /* Positions the element 70% down from the top of the viewport (beyond the visible area) */
     left: 10vw; /* Positions the element 10% from the left side of the viewport */
     font-family: 'Poppins', sans-serif; /* Uses the "Poppins" font, with "sans-serif" as a fallback */
     font-weight: 600; /* Applies a semi-bold weight (600) to the text */
@@ -344,15 +312,27 @@ input:checked + .slider::before {
     color: black; /* Updates the text color to black for better contrast in light mode */
 }
 
-/* Styles for the "year" class, likely used to display a year value or a large numerical indicator */
+/* Styles for the "year" class */
 .year {
     position: absolute; /* Allows the element to be positioned freely relative to its nearest positioned ancestor */
-    top: 169vh; /* Positions the element 152% down from the top of the viewport (beyond the visible area) */
+    top: 78vh; /* Positions the element 78% down from the top of the viewport (beyond the visible area) */
     left: 10vw; /* Positions the element 10% from the left side of the viewport */
     font-family: 'Poppins', sans-serif; /* Uses the "Poppins" font, with "sans-serif" as a fallback */
     font-weight: 600; /* Applies a semi-bold weight (600) to the text */
     color: rgb(255, 51, 95); /* Sets the text color to a bright pink shade (RGB format) */
-    font-size: 4vw; /* Sets the font size to 4% of the viewport width, making it responsive */
+    font-size: 3vw; /* Sets the font size to 3% of the viewport width, making it responsive */
+    z-index: 1; /* Ensures this element is displayed above other content with a lower z-index */
+}
+
+/* Styles for the "model-year" class */
+.model-year {
+    position: absolute; /* Allows the element to be positioned freely relative to its nearest positioned ancestor */
+    top: 86vh; /* Positions the element 86% down from the top of the viewport (beyond the visible area) */
+    left: 10vw; /* Positions the element 10% from the left side of the viewport */
+    font-family: 'Poppins', sans-serif; /* Uses the "Poppins" font, with "sans-serif" as a fallback */
+    font-weight: 600; /* Applies a semi-bold weight (600) to the text */
+    color: white; /* Sets the text color to white, ensuring visibility on dark backgrounds */
+    font-size: 1vw; /* Sets the font size to 1% of the viewport width, ensuring responsiveness */
     z-index: 1; /* Ensures this element is displayed above other content with a lower z-index */
 }
 
@@ -361,13 +341,18 @@ input:checked + .slider::before {
     color: rgb(0, 40, 159); /* Updates the text color to a dark blue for better contrast in light mode */
 }
 
-/* Styles for the "text-premium-a1" class, possibly used to display a premium-level description */
+/* Changes the color of the "model-year" element in light mode */
+.light-mode .model-year {
+    color: black; /* Updates the text color to black in light mode */
+}
+
+/* Styles for the "text-premium-a1" class */
 .text-premium-a1 {
     position: absolute; /* Allows the element to be positioned freely relative to its nearest positioned ancestor */
-    top: 185vh; /* Positions the element 170% down from the top of the viewport (beyond the visible area) */
+    top: 110vh; /* Positions the element 110% down from the top of the viewport (beyond the visible area) */
     left: 10vw; /* Positions the element 10% from the left side of the viewport */
     font-family: 'Poppins', sans-serif; /* Uses the "Poppins" font, with "sans-serif" as a fallback */
-    font-weight: 200; /* Applies a thin weight (200) to the text for a lighter appearance */
+    font-weight: 300; /* Applies a thin weight (300) to the text for a lighter appearance */
     color: text; /* Invalid value: This should be replaced with a valid color (e.g., rgb, hex, or a color name) */
     font-size: 1.2vw; /* Sets the font size to 1.2% of the viewport width, ensuring responsiveness */
     z-index: 1; /* Ensures this element is displayed above other content with a lower z-index */
@@ -388,7 +373,7 @@ input:checked + .slider::before {
 
 .contcarousel {
     position: relative;
-    top: 25vh; /* Positions the carousel at 25% of the viewport height */
+    top: -30vh;
     left: 20vw; /* Moves the carousel 20% from the left */
     width: 40vw; /* Defines the carousel width */
     height: 30vh; /* Ensures a fixed height */
@@ -538,7 +523,7 @@ footer {
     background-color: rgb(44, 44, 44); /* Background color */
     color: white; /* White text color */
     padding: 6vh 80px; /* Adds more space around the edges */
-    margin-top: 50vh; /* Pushes the footer to the bottom */
+    margin-top: -10vh; /* Pushes the footer to the bottom */
     font-size: 0.9rem; /* Reduces font size */
 }
 
