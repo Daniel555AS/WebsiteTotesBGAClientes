@@ -473,17 +473,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Generate time options with 30-minute intervals
     function generarOpcionesHora() {
-        for (let h = 9; h <= 16; h++) {
-            for (let m of [0, 30]) {
-                let horaFormateada = h.toString().padStart(2, "0");
-                let minFormateados = m.toString().padStart(2, "0");
-                let opcion = document.createElement("option");
-                opcion.value = `${horaFormateada}:${minFormateados}`;
-                opcion.textContent = `${horaFormateada}:${minFormateados}`;
-                horaSelect.appendChild(opcion);
-            }
+        for (let h = 9; h <= 17; h++) {
+            let horaFormateada = h.toString().padStart(2, "0");
+            let opcion = document.createElement("option");
+            opcion.value = `${horaFormateada}:00`;
+            opcion.textContent = `${horaFormateada}:00`;
+            horaSelect.appendChild(opcion);
         }
     }
+    
     generarOpcionesHora(); // Call the function
 
     // Combine date and time before submitting the form
