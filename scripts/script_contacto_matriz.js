@@ -1,7 +1,14 @@
-const identifierTypeMap = {}; // Dictionary for mapping ID to name
+const identifierTypeMap = {};
 
 document.addEventListener('DOMContentLoaded', async () => {
     const identifierTypeSelect = document.getElementById('identifier-type');
+    const customerTypeSelect = document.getElementById('customer-type');
+    const grupoNombre = document.getElementById('nombre').closest('.form-group');
+    const grupoApellido = document.getElementById('apellido').closest('.form-group');
+    const grupoRazonSocial = document.getElementById('grupo-razon-social');
+    const nombreInput = document.getElementById('nombre');
+    const apellidoInput = document.getElementById('apellido');
+    const razonSocialInput = document.getElementById('razon-social');
 
     try {
         const response = await fetch('http://localhost:8080/identifier-type', {
@@ -17,20 +24,80 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         const identifierTypes = await response.json();
 
-        // Llenar el select y el diccionario
         identifierTypes.forEach(type => {
-            identifierTypeMap[type.id] = type.name; // Save to dictionary
+            identifierTypeMap[type.id] = type.name;
+        });
 
-            const option = document.createElement('option');
-            option.value = type.id;  
-            option.textContent = type.name;
-            identifierTypeSelect.appendChild(option);
+        function actualizarOpcionesIdentificador(tipoCliente) {
+            identifierTypeSelect.innerHTML = '';
+
+            if (tipoCliente === 'juridica') {
+                const nitId = Object.keys(identifierTypeMap).find(
+                    id => identifierTypeMap[id].toUpperCase() === 'NIT'
+                );
+
+                if (nitId) {
+                    const option = document.createElement('option');
+                    option.value = nitId;
+                    option.textContent = identifierTypeMap[nitId];
+                    identifierTypeSelect.appendChild(option);
+                    identifierTypeSelect.disabled = true;
+                }
+            } else {
+                for (const [id, name] of Object.entries(identifierTypeMap)) {
+                    if (name.toUpperCase() !== 'NIT') {
+                        const option = document.createElement('option');
+                        option.value = id;
+                        option.textContent = name;
+                        identifierTypeSelect.appendChild(option);
+                    }
+                }
+                identifierTypeSelect.disabled = false;
+            }
+        }
+
+        function actualizarCamposFormulario(tipoCliente) {
+            if (tipoCliente === 'juridica') {
+                grupoNombre.style.display = 'none';
+                grupoApellido.style.display = 'none';
+                grupoRazonSocial.style.display = 'block';
+
+                nombreInput.required = false;
+                apellidoInput.required = false;
+                razonSocialInput.required = true;
+
+                nombreInput.value = '';
+                apellidoInput.value = '';
+            } else {
+                grupoNombre.style.display = 'block';
+                grupoApellido.style.display = 'block';
+                grupoRazonSocial.style.display = 'none';
+
+                nombreInput.required = true;
+                apellidoInput.required = true;
+                razonSocialInput.required = false;
+
+                razonSocialInput.value = '';
+            }
+        }
+
+        // Al cargar la página
+        const tipoInicial = customerTypeSelect.value;
+        actualizarOpcionesIdentificador(tipoInicial);
+        actualizarCamposFormulario(tipoInicial);
+
+        // Al cambiar el tipo de cliente
+        customerTypeSelect.addEventListener('change', () => {
+            const tipoSeleccionado = customerTypeSelect.value;
+            actualizarOpcionesIdentificador(tipoSeleccionado);
+            actualizarCamposFormulario(tipoSeleccionado);
         });
 
     } catch (error) {
         console.error('Error al obtener los tipos de identificador:', error);
     }
 });
+
 
 
 // Select the input element with the ID 'telefono'
@@ -105,20 +172,24 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        // Capture the other values ​​of the form
-        const customerName = document.getElementById("nombre")?.value.trim();
-        const lastName = document.getElementById("apellido")?.value.trim();
-        const phoneNumbers = document.getElementById("telefono")?.value.trim();
         const customerType = document.getElementById("customer-type")?.value;
+        const isBusiness = customerType === "juridica";
+        const razonSocial = document.getElementById("razon-social")?.value.trim();
+        const customerNameNatural = document.getElementById("nombre")?.value.trim();
+        const lastNameNatural = document.getElementById("apellido")?.value.trim();
+        const phoneNumbers = document.getElementById("telefono")?.value.trim();
         const identifierTypeId = document.getElementById("identifier-type")?.value;
         const customerId = document.getElementById("identificacion-num")?.value.trim();
         const email = document.getElementById("correo")?.value.trim();
         const address = document.getElementById("address")?.value.trim();
-
+    
         const parsedCustomerId = parseInt(customerId, 10);
         const parsedIdentifierTypeId = parseInt(identifierTypeId, 10);
-        const isBusiness = customerType === "empresa";
-
+    
+        // Assign first and last name values ​​according to customer type
+        const customerName = isBusiness ? "*" : customerNameNatural;
+        const lastName = isBusiness ? razonSocial : lastNameNatural;
+    
         const appointmentData = {
             dateTime,
             state: true,
@@ -132,7 +203,7 @@ document.addEventListener("DOMContentLoaded", function () {
             lastName,
             identifierTypeId: parsedIdentifierTypeId,
         };
-
+    
         for (const key in appointmentData) {
             if (!(key in fieldNames)) continue; // Skip keys that are not in the dictionary
         
@@ -228,20 +299,25 @@ async function generarPDFCita(appointmentData) {
         const columnas = ["Campo", "Información"];
 
         const identifierTypeName = identifierTypeMap[appointmentData.identifierTypeId] || "Desconocido";
+        
+        const filas = [];
 
-        const filas = [
-            ["Appointment ID", appointmentId],
-            ["Nombre", appointmentData.customerName],
-            ["Apellido", appointmentData.lastName],
-            ["Teléfono", appointmentData.phoneNumbers],
-            ["Correo", appointmentData.email],
-            ["Dirección", appointmentData.address],
-            ["Tipo de Cliente", appointmentData.isBusiness ? "Empresa" : "Individuo"],
-            ["Identificación", appointmentData.customerId],
-            ["Tipo de Identificación", identifierTypeName], 
-            ["Fecha y Hora", appointmentData.dateTime],
-            ["Estado", appointmentData.state ? "Activo" : "Inactivo"]
-        ];
+        filas.push(["Appointment ID", appointmentId]);
+        
+        if (appointmentData.isBusiness) {
+            filas.push(["Razón Social", appointmentData.lastName]);
+        } else {
+            filas.push(["Nombre", appointmentData.customerName]);
+            filas.push(["Apellido", appointmentData.lastName]);
+        }
+        
+        filas.push(["Teléfono", appointmentData.phoneNumbers]);
+        filas.push(["Correo", appointmentData.email]);
+        filas.push(["Dirección", appointmentData.address]);
+        filas.push(["Tipo de Cliente", appointmentData.isBusiness ? "Jurídica" : "Natural"]);
+        filas.push(["Identificación", appointmentData.customerId]);
+        filas.push(["Tipo de Identificación", identifierTypeName]);
+        filas.push(["Fecha y Hora", appointmentData.dateTime]);
         
         doc.autoTable({
             head: [columnas],

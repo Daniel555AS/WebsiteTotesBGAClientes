@@ -45,6 +45,25 @@
   <main>
     <h1 id="contact-title">AGENDA TU CITA</h1>
     <form id="contact-form" action="#" method="POST">
+
+      <!-- Customer Type -->
+      <div class="form-group">
+        <label for="customer-type-label">Tipo de Cliente*</label>
+        <select id="customer-type" required>
+          <option value="persona">Natural</option>
+          <option value="juridica">Jurídica</option>
+        </select>
+        <small id="error-identifier" class="error-message"></small>
+      </div>
+
+      <!-- Identifier Type -->
+      <div class="form-group">
+        <label for="identifier-type-label">Tipo de identificación*</label>
+        <select id="identifier-type" required>
+        </select>
+        <small id="error-identifier" class="error-message"></small>
+      </div>    
+
       <!-- Name Input -->
       <div class="form-group">
         <label for="nombre">Nombres*</label>
@@ -59,30 +78,19 @@
         <small id="error-apellido" class="error-message"></small>
       </div>
 
+      <!-- Grupo para Empresa -->
+      <div class="form-group full-width" id="grupo-razon-social" style="display: none;">
+        <label for="razon-social">Razón Social*</label>
+        <input type="text" id="razon-social" name="razon-social" placeholder="Razón social de la empresa">
+        <small id="error-razon-social" class="error-message"></small>
+      </div>
+
       <!-- Phone Number Input -->
       <div class="form-group">
         <label for="telefono">Teléfono Celular*</label>
         <input type="text" id="telefono" name="telefono" placeholder="Tu Teléfono celular" required>
         <small id="error-telefono" class="error-message"></small>
       </div>
-
-      <!-- Customer Type -->
-      <div class="form-group">
-        <label for="customer-type-label">Tipo de Cliente*</label>
-        <select id="customer-type" required>
-          <option value="persona">Natural</option>
-          <option value="empresa">Empresa</option>
-        </select>
-        <small id="error-identifier" class="error-message"></small>
-      </div>
-
-      <!-- Identifier Type -->
-      <div class="form-group">
-        <label for="identifier-type-label">Tipo de identificación*</label>
-        <select id="identifier-type" required>
-        </select>
-        <small id="error-identifier" class="error-message"></small>
-      </div>    
 
       <!-- Identification number -->
       <div class="form-group">
