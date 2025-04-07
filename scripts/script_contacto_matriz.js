@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         identifierTypes.forEach(type => {
             identifierTypeMap[type.id] = type.name;
         });
-
+        const identificacionInput = document.getElementById('identificacion-num');
         function actualizarOpcionesIdentificador(tipoCliente) {
             identifierTypeSelect.innerHTML = '';
 
@@ -68,6 +68,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
                 nombreInput.value = '';
                 apellidoInput.value = '';
+                identificacionInput.placeholder = 'NIT: Todo el código junto';
             } else {
                 grupoNombre.style.display = 'block';
                 grupoApellido.style.display = 'block';
@@ -78,15 +79,16 @@ document.addEventListener('DOMContentLoaded', async () => {
                 razonSocialInput.required = false;
 
                 razonSocialInput.value = '';
+                identificacionInput.placeholder = 'Tu número de identificación';
             }
         }
 
-        // Al cargar la página
+        // When loading the page
         const tipoInicial = customerTypeSelect.value;
         actualizarOpcionesIdentificador(tipoInicial);
         actualizarCamposFormulario(tipoInicial);
 
-        // Al cambiar el tipo de cliente
+        // When changing the client type
         customerTypeSelect.addEventListener('change', () => {
             const tipoSeleccionado = customerTypeSelect.value;
             actualizarOpcionesIdentificador(tipoSeleccionado);
@@ -97,8 +99,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         console.error('Error al obtener los tipos de identificador:', error);
     }
 });
-
-
 
 // Select the input element with the ID 'telefono'
 const telefonoInput = document.getElementById('telefono');
@@ -113,6 +113,40 @@ if (telefonoInput) {
             !['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight', 'Tab'].includes(event.key) // Allow specific control keys
         ) {
             event.preventDefault(); // Block any other key press
+        }
+    });
+}
+
+// Select the input element with the ID 'identificacion-num'
+const InputId = document.getElementById('identificacion-num');
+
+// Check if the input element exists in the DOM
+if (InputId) {
+    InputId.addEventListener('keydown', (event) => {
+        const allowedKeys = ['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight', 'Tab'];
+
+        // Block if not an allowed number or key
+        if (
+            !/[0-9]/.test(event.key) &&
+            !allowedKeys.includes(event.key)
+        ) {
+            event.preventDefault();
+            return;
+        }
+
+        // Prevent entry of more than 12 digits (except control keys)
+        const currentValue = InputId.value;
+        const isControlKey = allowedKeys.includes(event.key);
+        const selectionStart = InputId.selectionStart;
+        const selectionEnd = InputId.selectionEnd;
+        const willAddDigit = /[0-9]/.test(event.key);
+
+        if (
+            willAddDigit &&
+            currentValue.length >= 12 &&
+            selectionStart === selectionEnd // You are not selecting text
+        ) {
+            event.preventDefault();
         }
     });
 }
@@ -182,7 +216,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const customerId = document.getElementById("identificacion-num")?.value.trim();
         const email = document.getElementById("correo")?.value.trim();
         const address = document.getElementById("address")?.value.trim();
-    
+        
         const parsedCustomerId = parseInt(customerId, 10);
         const parsedIdentifierTypeId = parseInt(identifierTypeId, 10);
     
@@ -204,13 +238,26 @@ document.addEventListener("DOMContentLoaded", function () {
             identifierTypeId: parsedIdentifierTypeId,
         };
     
+        // Set friendly name for lastName depending on the client type
+        if (isBusiness) {
+            fieldNames.lastName = "Razón Social";
+        } else {
+            fieldNames.lastName = "Apellidos";
+        }
+
+        // Validate fields
         for (const key in appointmentData) {
-            if (!(key in fieldNames)) continue; // Skip keys that are not in the dictionary
-        
+            if (!(key in fieldNames)) continue;
+
             if (!appointmentData[key] || appointmentData[key].length === 0) {
                 alert(`El campo "${fieldNames[key]}" es obligatorio y no puede estar vacío.`);
-                return; // Stops the form from being sent
+                return;
             }
+        }
+
+        if (!/^\d{10}$/.test(phoneNumbers)) {
+            alert("Ingrese un número telefónico válido");
+            return;
         }
 
         try {
@@ -230,6 +277,7 @@ document.addEventListener("DOMContentLoaded", function () {
             alert("¡Cita registrada exitosamente! Puedes Revisar el Resúmen de tu Cita en el archivo PDF que se ha descargado");
             generarPDFCita(appointmentData)
             form.reset();
+            document.getElementById("customer-type").value = customerType;
         } catch (error) {
             console.error("Error al enviar el formulario:", error);
             alert("Oops... Hubo un problema al registrar la cita.");
@@ -302,7 +350,7 @@ async function generarPDFCita(appointmentData) {
         
         const filas = [];
 
-        filas.push(["Appointment ID", appointmentId]);
+        filas.push(["ID de Cita", appointmentId]);
         
         if (appointmentData.isBusiness) {
             filas.push(["Razón Social", appointmentData.lastName]);

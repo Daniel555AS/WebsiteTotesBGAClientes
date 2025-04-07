@@ -138,6 +138,11 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
+        if (!/^\d{10}$/.test(formData.phone)) {
+            alert("Ingrese un número telefónico válido");
+            return;
+        }
+
         try {
             // Send a POST request to the backend server endpoint
             const response = await fetch('http://localhost:8080/comment', {
