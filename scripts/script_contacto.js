@@ -138,10 +138,10 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        if (!/^\d{10}$/.test(formData.phone)) {
-            alert("Ingrese un número telefónico válido");
+        if (formData.phone && !/^\d{10}$/.test(formData.phone)) {
+            alert("Ingrese un número telefónico válido.");
             return;
-        }
+        }        
 
         try {
             // Send a POST request to the backend server endpoint
@@ -167,7 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } catch (error) {
             // Handle errors during the fetch operation
             console.error('Hubo un error al enviar el comentario', error); // Log the error to the console
-            alert('There was a problem sending the comment.'); // Notify the user of an error
+            alert('Hubo un problema al enviar el comentario.'); // Notify the user of an error
         }
     });
 });
