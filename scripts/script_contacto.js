@@ -145,7 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         try {
             // Send a POST request to the backend server endpoint
-            const response = await fetch('http://localhost:8080/comment', {
+            const response = await fetch('http://localhost:8080/comments', {
                 method: 'POST', // HTTP method used for sending data
                 headers: {
                     'Content-Type': 'application/json', // Indicate that the payload is in JSON format

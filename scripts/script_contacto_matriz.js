@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const razonSocialInput = document.getElementById('razon-social');
 
     try {
-        const response = await fetch('http://localhost:8080/identifier-type', {
+        const response = await fetch('http://localhost:8080/identifier-types', {
             method: "GET",
             headers: {
                 "Username": "portalwebuser@totesmatriz.com"
@@ -261,7 +261,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         try {
-            const response = await fetch("http://localhost:8080/appointment", {
+            const response = await fetch("http://localhost:8080/appointments", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
