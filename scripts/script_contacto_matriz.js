@@ -548,5 +548,61 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+    const fechaInput = document.getElementById("fecha");
+    const horaSelect = document.getElementById("hora");
+  
+    const horas = [
+      "09:00", "10:00", "11:00", "12:00", "13:00",
+      "14:00", "15:00", "16:00", "17:00"
+    ];
+  
+    const userEmail = "portalwebuser@totesmatriz.com"; 
+  
+    fechaInput.addEventListener("change", async function () {
+      const fechaSeleccionada = this.value;
+      horaSelect.innerHTML = "";
+  
+      try {
+        const respuesta = await fetch(`http://localhost:8080/appointments/hourly-count?date=${fechaSeleccionada}`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            "Username": userEmail
+          }
+        });
+  
+        const data = await respuesta.json();
+  
+        if (!data || !Array.isArray(data.appointmentsPerHour)) {
+          throw new Error("Respuesta no válida del servidor.");
+        }
+  
+        data.appointmentsPerHour.forEach((cantidad, index) => {
+          const hora = horas[index];
+          const option = document.createElement("option");
+          option.value = hora;
+          option.textContent = cantidad >= 3 ? `${hora} (Ocupado)` : hora;
+          option.disabled = cantidad >= 3;
+          horaSelect.appendChild(option);
+        });
+  
+        const todasOcupadas = data.appointmentsPerHour.every(cantidad => cantidad >= 3);
+        if (todasOcupadas) {
+          const option = document.createElement("option");
+          option.textContent = "No hay horarios disponibles para esta fecha.";
+          option.disabled = true;
+          horaSelect.appendChild(option);
+        }
+  
+      } catch (error) {
+        console.error("Error consultando horas disponibles:", error);
+        alert("No se pudieron obtener los horarios disponibles. Intenta más tarde.");
+      }
+    });
+  });
+  
+  
+
 
 
